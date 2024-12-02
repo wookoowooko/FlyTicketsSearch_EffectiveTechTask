@@ -38,6 +38,7 @@ android {
 dependencies {
 
     implementation(projects.uiCatalog)
+    implementation(libs.adapter.dalegates)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

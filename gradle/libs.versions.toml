@@ -21,6 +21,7 @@ moshi = "1.15.1"
 okhttp-logging = "4.12.0"
 detekt = "1.23.7"
 jetbrainsKotlinJvm = "1.9.24"
+adapter-delegates ="4.3.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -60,6 +61,8 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 #detekt
 detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+
+adapter-dalegates = {module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref="adapter-delegates"}
 
 
 
