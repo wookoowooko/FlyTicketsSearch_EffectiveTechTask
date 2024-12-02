@@ -1,22 +1,21 @@
-package io.wookoo.flyticketssearch.tickets
+package io.wookoo.flyticketssearch.tickets.screen
 
+import android.annotation.SuppressLint
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import io.wookoo.flyticketssearch.tickets.databinding.ListItemBinding
 
-private interface DisplayableItem
-
-internal data class Offers(
+data class UiOffer(
     val id: Long,
     val title: String,
     val town: String,
-    val price: String
-) : DisplayableItem
+    val price: Int
+)
 
-internal fun offersAdapterDelegate(itemClickedListener: (Offers) -> Unit) =
-    adapterDelegateViewBinding<Offers, Offers, ListItemBinding>(
+@SuppressLint("SetTextI18n")
+internal fun offersAdapterDelegate(itemClickedListener: (UiOffer) -> Unit) =
+    adapterDelegateViewBinding<UiOffer, Any, ListItemBinding>(
         { layoutInflater, root -> ListItemBinding.inflate(layoutInflater, root, false) }
     ) {
-
         binding.root.setOnClickListener {
             itemClickedListener(item)
         }
@@ -25,7 +24,7 @@ internal fun offersAdapterDelegate(itemClickedListener: (Offers) -> Unit) =
             binding.apply {
                 title.text = item.title
                 town.text = item.town
-                price.text = item.price
+                price.text = item.price.toString()
             }
         }
     }

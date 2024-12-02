@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.fly.tickets.detekt)
 }
 
 android {
@@ -37,8 +38,20 @@ android {
 
 dependencies {
 
-    implementation(projects.uiCatalog)
-    implementation(libs.adapter.dalegates)
+    projects.core.apply {
+        api(domain)
+    }
+
+    libs.apply {
+        implementation(adapter.dalegates)
+        implementation(bundles.koin.bundle)
+    }
+
+    projects.apply {
+        implementation(logger)
+        implementation(uiCatalog)
+    }
+    
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
