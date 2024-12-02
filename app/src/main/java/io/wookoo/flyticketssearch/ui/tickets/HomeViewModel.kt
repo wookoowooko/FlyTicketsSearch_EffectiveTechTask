@@ -1,4 +1,4 @@
-package io.wookoo.flyticketssearch.ui.home
+package io.wookoo.flyticketssearch.ui.tickets
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

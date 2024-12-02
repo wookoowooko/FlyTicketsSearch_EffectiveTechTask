@@ -15,4 +15,10 @@
     <color name="dark_green">#015905</color>
     <color name="red">#FF0000</color>
     <color name="orange">#F36E36</color>
+
+
+    <color name="colorSelectedItem">#4C95FE</color>
+    <color name="colorUnselectedItem">#9F9F9F</color>
+
+
 </resources>

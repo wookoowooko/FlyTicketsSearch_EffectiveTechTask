@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">FlyTicketsSearch</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_fly">Авиабилеты</string>
+    <string name="title_hotels">Отели</string>
+    <string name="title_short">Короче</string>
+    <string name="title_notifications">Подписки</string>
+    <string name="title_profile">Профиль</string>
 </resources>

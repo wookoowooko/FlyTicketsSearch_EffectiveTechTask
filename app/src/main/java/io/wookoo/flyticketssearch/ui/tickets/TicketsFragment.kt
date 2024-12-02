@@ -1,4 +1,4 @@
-package io.wookoo.flyticketssearch.ui.home
+package io.wookoo.flyticketssearch.ui.tickets
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import io.wookoo.flyticketssearch.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class TicketsFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
