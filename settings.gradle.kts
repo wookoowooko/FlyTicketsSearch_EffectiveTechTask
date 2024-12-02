@@ -23,3 +23,5 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "FlyTicketsSearch"
 include(":app")
+include(":features:tickets")
+include(":ui-catalog")

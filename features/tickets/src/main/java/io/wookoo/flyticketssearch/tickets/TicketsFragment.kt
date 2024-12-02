@@ -1,4 +1,4 @@
-package io.wookoo.flyticketssearch.ui.tickets
+package io.wookoo.flyticketssearch.tickets
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import io.wookoo.flyticketssearch.databinding.FragmentHomeBinding
+import io.wookoo.flyticketssearch.tickets.databinding.FragmentTicketsBinding
+
 
 class TicketsFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentTicketsBinding? = null
     private val binding get() = _binding
 
     override fun onCreateView(
@@ -19,16 +20,16 @@ class TicketsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+        val ticketsViewModel =
+            ViewModelProvider(this)[TicketsViewModel::class.java]
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentTicketsBinding.inflate(inflater, container, false)
         val root: View = binding?.root ?: error("Binding is null")
 
-        val textView: TextView? = binding?.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView?.text = it
-        }
+////        val textView: TextView? = binding?.textHome
+//        ticketsViewModel.text.observe(viewLifecycleOwner) {
+//            textView?.text = it
+//        }
         return root
     }
 

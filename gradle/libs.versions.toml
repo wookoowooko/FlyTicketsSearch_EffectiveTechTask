@@ -73,6 +73,7 @@ jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrai
 
 #own
 fly-tickets-detekt = { id = "fly.tikets.detekt", version = "unspecified" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
 [bundles]
 koin-bundle = [
