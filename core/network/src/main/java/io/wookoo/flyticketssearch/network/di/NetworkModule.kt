@@ -1,4 +1,4 @@
-package io.wookoo.flyticketssearch.network.network.di
+package io.wookoo.flyticketssearch.network.di
 
 import io.wookoo.flyticketssearch.network.Client
 import io.wookoo.flyticketssearch.network.IOffersApi

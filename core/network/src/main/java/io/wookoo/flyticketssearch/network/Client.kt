@@ -13,7 +13,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
-
 class Client(private val context: Context) {
 
     val networkClient: OkHttpClient = OkHttpClient.Builder()
@@ -36,5 +35,4 @@ class Client(private val context: Context) {
         apiExcludeFromMock = arrayOf(), // exclude endpoint if `apiEnableMock` is true
         apiResponseLatency = 500L // latency of retrieving data
     )
-
 }

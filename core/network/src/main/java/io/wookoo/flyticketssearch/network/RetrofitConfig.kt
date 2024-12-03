@@ -17,5 +17,3 @@ class RetrofitConfig(client: Client) {
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
 }
-
-

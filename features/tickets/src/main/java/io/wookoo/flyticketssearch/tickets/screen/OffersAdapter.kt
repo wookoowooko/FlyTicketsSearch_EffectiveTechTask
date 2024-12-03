@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import io.wookoo.flyticketssearch.tickets.databinding.ListItemBinding
+import io.wookoo.flyticketssearch.tickets.ui.MapImages.mapImagesFromId
 import io.wookoo.flyticketssearch.tickets.ui.UiOffer
-
 
 private val diffCallback = object : DiffUtil.ItemCallback<UiOffer>() {
     override fun areItemsTheSame(oldItem: UiOffer, newItem: UiOffer): Boolean {
@@ -40,6 +40,7 @@ class OffersAdapter(
                     title.text = item.title
                     town.text = item.town
                     price.text = item.price.toString()
+                    image.setImageResource(mapImagesFromId(item.id.toInt()))
                 }
             }
         }
