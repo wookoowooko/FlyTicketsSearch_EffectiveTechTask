@@ -15,7 +15,11 @@ class NetworkApiImpl(
             api.getOffers()
                 .asFlow()
                 .collect { response ->
-                    emit(response.offers.map { it.toOfferModel() })
+                    emit(
+                        response.offers.map {
+                            it.toOfferModel()
+                        }
+                    )
                 }
         }
     }

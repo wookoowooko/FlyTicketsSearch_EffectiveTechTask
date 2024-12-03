@@ -1,19 +1,30 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.FlyTicketsSearch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.FlyTicketsSearch" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/gray_one</item>
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/grey_six</item>
+        <item name="colorSecondary">#AB2929</item>
         <item name="colorSecondaryVariant">@color/grey_four</item>
         <item name="colorOnSecondary">@color/black</item>
+
+        <item name="colorSurface">@color/blue</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
-        <!-- Customize your theme here. -->
+        <!-- Window background color. -->
         <item name="android:windowBackground">?attr/colorPrimary</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
+
+    </style>
+
+    <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/transparent</item>
     </style>
 
 </resources>

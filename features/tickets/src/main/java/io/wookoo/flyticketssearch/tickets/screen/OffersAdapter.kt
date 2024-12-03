@@ -1,6 +1,5 @@
 package io.wookoo.flyticketssearch.tickets.screen
 
-import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
@@ -26,7 +25,6 @@ class OffersAdapter(
         delegatesManager.addDelegate(offersAdapterDelegate(itemClickedListener))
     }
 
-    @SuppressLint("SetTextI18n")
     private fun offersAdapterDelegate(itemClickedListener: (UiOffer) -> Unit) =
         adapterDelegateViewBinding<UiOffer, UiOffer, ListItemBinding>(
             { layoutInflater, root -> ListItemBinding.inflate(layoutInflater, root, false) }
@@ -39,7 +37,7 @@ class OffersAdapter(
                 binding.apply {
                     title.text = item.title
                     town.text = item.town
-                    price.text = item.price.toString()
+                    price.text = item.price
                     image.setImageResource(mapImagesFromId(item.id.toInt()))
                 }
             }
