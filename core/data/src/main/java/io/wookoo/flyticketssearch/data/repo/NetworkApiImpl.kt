@@ -9,15 +9,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class NetworkApiImpl(
-    private val api: io.wookoo.flyticketssearch.network.IOffersApi
+    private val api: IOffersApi
 ) : INetworkApi {
     override fun getAllOffers(): Flow<List<OfferModel>> {
-        logger.info("TAG", "getAllOffers")
         return flow {
             api.getOffers()
                 .asFlow()
                 .collect { response ->
-                    emit(response.data.map { it.toOfferModel() })
+                    logger.info("API", "response $response")
+                    emit(response.offers.map { it.toOfferModel() })
                 }
         }
     }

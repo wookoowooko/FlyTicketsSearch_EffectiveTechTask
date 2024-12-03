@@ -5,20 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import io.wookoo.flyticketssearch.logger.MyLogger.logger
 import io.wookoo.flyticketssearch.tickets.databinding.FragmentTicketsBinding
 import io.wookoo.flyticketssearch.tickets.viewmodel.TicketsViewModel
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class TicketsFragment : Fragment() {
 
     private var _binding: FragmentTicketsBinding? = null
     private val binding get() = _binding
 
-    private val ticketsAdapter = ListDelegationAdapter(
-        offersAdapterDelegate {}
+    private val ticketsAdapter = OffersAdapter(
+        itemClickedListener = {}
     )
 
     private val ticketsViewModel: TicketsViewModel by viewModel()
@@ -29,13 +32,15 @@ class TicketsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        lifecycleScope.launch {
+            ticketsViewModel.uiOffer.collect { offers ->
+                logger.info("API", "observedOffers=> $offers")
+                ticketsAdapter.items = offers
+            }
+        }
+
         _binding = FragmentTicketsBinding.inflate(inflater, container, false)
         val root: View = binding?.root ?: error("Binding is null")
-
-
-        ticketsViewModel.uiOffer.observe(viewLifecycleOwner) { offers ->
-            ticketsAdapter.items = offers
-        }
 
         binding?.apply {
             ticketRecycler.apply {
@@ -43,9 +48,6 @@ class TicketsFragment : Fragment() {
                 layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             }
         }
-
-        ticketsViewModel.loadOffers()
-
         return root
     }
 

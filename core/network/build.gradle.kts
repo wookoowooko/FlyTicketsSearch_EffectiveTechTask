@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.fly.tickets.detekt)
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -38,7 +38,9 @@ dependencies {
     api(libs.bundles.network)
     implementation(libs.koin.core)
     implementation(projects.logger)
-    ksp(libs.mock.fit.compiler)
+    kapt(libs.mock.fit.compiler)
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
