@@ -11,10 +11,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#4C95FE</color>
     <color name="dark_blue">#00427d</color>
+    <color name="special_blue">#2261BC</color>
+    <color name="special_dark_blue">#00427D</color>
     <color name="green">#4CB24E</color>
     <color name="dark_green">#015905</color>
+    <color name="special_green">#3A633B</color>
     <color name="red">#FF0000</color>
     <color name="orange">#F36E36</color>
+    <color name="special_orange">#FF5E5E</color>
 
 
     <color name="colorSelectedItem">#4C95FE</color>
