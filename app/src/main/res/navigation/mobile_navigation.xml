@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_fly"
-        android:name="io.wookoo.flyticketssearch.ui.tickets.TicketsFragment"
+        android:name="io.wookoo.flyticketssearch.tickets.screen.TicketsFragment"
         android:label="@string/title_fly"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_tickets" />
 
     <fragment
         android:id="@+id/navigation_hotels"

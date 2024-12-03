@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "io.wookoo.flyticketssearch"
-        minSdk = 27
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -40,6 +40,19 @@ android {
 }
 
 dependencies {
+
+    projects.features.apply {
+        implementation(tickets)
+    }
+    projects.core.apply {
+        implementation(data)
+    }
+    implementation(projects.uiCatalog)
+
+    libs.apply {
+        implementation(bundles.koin.bundle)
+    }
+    implementation(projects.logger)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

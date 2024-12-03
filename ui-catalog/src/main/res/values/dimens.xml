@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="tickets_16dp">16dp</dimen>
+    <dimen name="tickets_10dp">10dp</dimen>
+    <dimen name="tickets_8dp">8dp</dimen>
+    <dimen name="tickets_32dp">32dp</dimen>
+    <dimen name="tickets_26dp">26dp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+</resources>

@@ -17,9 +17,22 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri( "https://jitpack.io") }
     }
 }
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "FlyTicketsSearch"
+
 include(":app")
+
+include(":logger")
+
+include(":ui-catalog")
+
+include(":features:tickets")
+
+include(":core:domain")
+include(":core:data")
+
+include(":core:network")

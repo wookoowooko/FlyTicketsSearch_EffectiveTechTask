@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".screen.TicketsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label_tickets"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:lineHeight="26.4sp"
+            android:text="@string/ticket_fragment_title"
+            android:textAlignment="center"
+            android:textColor="@color/grey_seven"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="38dp"
+            app:cardBackgroundColor="@color/grey_three"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_tickets">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/tickets_16dp"
+                app:cardBackgroundColor="@color/grey_four"
+                app:cardCornerRadius="@dimen/tickets_10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/tickets_16dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_search" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/tickets_8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/edit_text_from"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/tickets_8dp"
+                            android:layout_weight="1"
+                            android:autofillHints=""
+                            android:background="@null"
+                            android:fontFamily="@font/regular"
+                            android:hint="@string/tickets_from_hint"
+                            android:textColor="?attr/colorOnPrimary"
+                            android:textColorHint="@color/grey_six"
+                            android:textFontWeight="600"
+                            android:textSize="16sp">
+
+                        </TextView>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginHorizontal="@dimen/tickets_8dp" />
+
+                        <TextView
+                            android:id="@+id/edit_text_where"
+                            android:textColorHint="@color/grey_six"
+                            android:hint="@string/tickets_where_hint"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/tickets_8dp"
+                            android:layout_weight="1"
+                            android:autofillHints=""
+                            android:background="@null"
+                            android:fontFamily="@font/regular"
+                            android:textColor="?attr/colorOnPrimary"
+                            android:textFontWeight="600"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/label_"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tickets_16dp"
+            android:layout_marginTop="@dimen/tickets_32dp"
+            android:fontFamily="@font/regular"
+            android:text="@string/ticket_fragment_title"
+            android:textAlignment="center"
+            android:textColor="@color/grey_seven"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_card" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:orientation="horizontal"
+            android:id="@+id/ticket_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tickets_16dp"
+            android:layout_marginTop="@dimen/tickets_26dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

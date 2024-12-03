@@ -1,6 +1,6 @@
 [versions]
 agp = "8.7.2"
-kotlin = "1.9.24"
+kotlin = "2.0.21"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -13,7 +13,7 @@ lifecycleViewmodelKtx = "2.8.7"
 navigationFragmentKtx = "2.8.4"
 navigationUiKtx = "2.8.4"
 koin = "4.0.0"
-ksp = "2.0.21-1.0.26"
+ksp = "1.9.24-1.0.20"
 room-version = "2.6.1"
 retrofit = "2.11.0"
 coroutines = "1.9.0"
@@ -21,6 +21,11 @@ moshi = "1.15.1"
 okhttp-logging = "4.12.0"
 detekt = "1.23.7"
 jetbrainsKotlinJvm = "1.9.24"
+adapter-delegates = "4.3.2"
+mock-fit = "2.0.0"
+kapt = "2.1.0"
+
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +47,8 @@ moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-code
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+mock-fit =  {module = "com.github.javaherisaber.MockFit:runtime",version.ref = "mock-fit" }
+mock-fit-compiler =  {module = "com.github.javaherisaber.MockFit:compiler",version.ref = "mock-fit" }
 
 #KOIN
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
@@ -61,6 +68,8 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 
+adapter-dalegates = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapter-delegates" }
+
 
 
 [plugins]
@@ -70,9 +79,11 @@ androidx-room = { id = "androidx.room", version.ref = "room-version" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kapt = {id ="org.jetbrains.kotlin.kapt",  version.ref= "kapt" }
 
 #own
 fly-tickets-detekt = { id = "fly.tikets.detekt", version = "unspecified" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
 [bundles]
 koin-bundle = [
@@ -81,12 +92,14 @@ koin-bundle = [
     "koin-android-compat",
     "koin-androidx-navigation"
 ]
+
 network = [
     "retrofit",
     "retrofit-moshi",
     "coroutines",
     "moshi",
-    "okhttp-logging-interceptor"
+    "okhttp-logging-interceptor",
+    "mock-fit"
 ]
 
 
