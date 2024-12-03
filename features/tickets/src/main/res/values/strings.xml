@@ -11,4 +11,10 @@
     <string name="popular">Популярное направление</string>
     <string name="phuket">Пхукет</string>
     <string name="istanbul">Cтамбул</string>
+    <string name="price_label">Подписка на цену</string>
+    <string name="all_tikets_button">Посмотреть все билеты</string>
+    <string name="show_all">Показать все</string>
+    <string name="back">обратно</string>
+    <string name="filters">фильтры</string>
+    <string name="races">Прямые рейсы</string>
 </resources>
