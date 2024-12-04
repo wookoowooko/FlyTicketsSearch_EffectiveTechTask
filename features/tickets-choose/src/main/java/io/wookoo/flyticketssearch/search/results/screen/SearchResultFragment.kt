@@ -1,19 +1,21 @@
 package io.wookoo.flyticketssearch.search.results.screen
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
-import io.wookoo.flyticketssearch.logger.MyLogger.logger
+import io.wookoo.flyticketssearch.search.results.R
 import io.wookoo.flyticketssearch.search.results.databinding.FragmentSearchResultBinding
 import io.wookoo.flyticketssearch.search.results.viewnodel.SearchResultViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
+import java.util.Calendar
 
 class SearchResultFragment : Fragment() {
 
@@ -29,7 +31,7 @@ class SearchResultFragment : Fragment() {
     private var _binding: FragmentSearchResultBinding? = null
     private val binding get() = checkNotNull(_binding)
 
-    private val ticketsViewModel: SearchResultViewModel by viewModel()
+    private val searchResultViewModel: SearchResultViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,24 +44,55 @@ class SearchResultFragment : Fragment() {
         val searchQueryFrom = arguments?.getString("searchQueryFrom")
         val searchQueryWhere = arguments?.getString("searchQueryWhere")
 
-        ticketsViewModel.updateTextFrom(searchQueryFrom.orEmpty())
-        ticketsViewModel.updateTextWhere(searchQueryWhere.orEmpty())
+        searchResultViewModel.updateTextFrom(searchQueryFrom.orEmpty())
+        searchResultViewModel.updateTextWhere(searchQueryWhere.orEmpty())
 
         lifecycleScope.launch {
-            ticketsViewModel.textFrom.collect { textFrom ->
+            searchResultViewModel.textFrom.collect { textFrom ->
                 binding.editTextFromSearch.setText(textFrom)
             }
         }
 
         lifecycleScope.launch {
-            ticketsViewModel.textWhere.collect { textWhere ->
+            searchResultViewModel.textWhere.collect { textWhere ->
                 binding.editTextWhereSearch.setText(textWhere)
+            }
+        }
+
+        lifecycleScope.launch {
+            searchResultViewModel.dateDepartureOutbound.collect { dateDepartureOutbound ->
+                binding.dateDeparture.text = dateDepartureOutbound
+            }
+        }
+        lifecycleScope.launch {
+            searchResultViewModel.dateReturn.collect { dateReturn ->
+                if (dateReturn.isNotEmpty()) {
+                    binding.dateReturn.text = dateReturn
+                    binding.dateReturn.setCompoundDrawablesWithIntrinsicBounds(
+                        null,
+                        null,
+                        null,
+                        null
+                    )
+                } else {
+                    binding.dateReturn.text = getString(R.string.back)
+                    val drawable = ContextCompat.getDrawable(
+                        requireContext(),
+                        io.wookoo.tickets.shared.R.drawable.ic_add
+                    )
+                    binding.dateReturn.setCompoundDrawablesWithIntrinsicBounds(
+                        drawable,
+                        null,
+                        null,
+                        null
+                    )
+                }
             }
         }
 
         binding.apply {
             changeTextViews.setOnClickListener {
-                ticketsViewModel.changeValues()
+                searchResultViewModel.changeValues()
             }
 
             backClick.setOnClickListener {
@@ -67,11 +100,45 @@ class SearchResultFragment : Fragment() {
             }
 
             clearWhere.setOnClickListener {
-                ticketsViewModel.clearTextWhere()
+                searchResultViewModel.clearTextWhere()
+            }
+            cardWhereDate.setOnClickListener {
+                showDatePickerDialog(Position.OUTBOUND)
+            }
+            cardBackDate.setOnClickListener {
+                showDatePickerDialog(Position.RETURN)
             }
         }
 
         return root
+    }
+
+    private fun showDatePickerDialog(position: Position) {
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            { _, year, month, dayOfMonth ->
+                val calendar = Calendar.getInstance()
+                calendar.set(year, month, dayOfMonth)
+                when (position) {
+                    Position.OUTBOUND -> {
+                        searchResultViewModel.formatDateOutbound(calendar.time)
+                    }
+
+                    Position.RETURN -> {
+                        searchResultViewModel.formatDateReturn(calendar.time)
+                    }
+                }
+            },
+            Calendar.getInstance().get(Calendar.YEAR),
+            Calendar.getInstance().get(Calendar.MONTH),
+            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.show()
+    }
+
+    private enum class Position {
+        OUTBOUND,
+        RETURN
     }
 
     override fun onDestroy() {

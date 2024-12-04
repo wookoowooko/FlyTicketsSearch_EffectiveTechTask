@@ -1,16 +1,28 @@
 package io.wookoo.flyticketssearch.search.results.viewnodel
 
 import androidx.lifecycle.ViewModel
+import io.wookoo.flyticketssearch.domain.usecases.FormatDateUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import java.util.Date
 
-class SearchResultViewModel : ViewModel() {
+class SearchResultViewModel(
+    private val formatDateUseCase: FormatDateUseCase
+) : ViewModel() {
+
+    private val today = Date()
 
     private val _textFrom = MutableStateFlow("")
     val textFrom = _textFrom.asStateFlow()
 
     private val _textWhere = MutableStateFlow("")
     val textWhere = _textWhere.asStateFlow()
+
+    private val _dateDepartureOutbound = MutableStateFlow(formatDateUseCase.execute(today))
+    val dateDepartureOutbound = _dateDepartureOutbound.asStateFlow()
+
+    private val _dateReturn = MutableStateFlow("")
+    val dateReturn = _dateReturn.asStateFlow()
 
     fun updateTextFrom(text: String) {
         _textFrom.value = text
@@ -33,4 +45,11 @@ class SearchResultViewModel : ViewModel() {
         }
     }
 
+    fun formatDateOutbound(date: Date) {
+        _dateDepartureOutbound.value = formatDateUseCase.execute(date)
+    }
+
+    fun formatDateReturn(date: Date) {
+        _dateReturn.value = formatDateUseCase.execute(date)
+    }
 }

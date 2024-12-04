@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -139,7 +140,7 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
-
+                            android:id="@+id/card_back_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/tickets_16dp"
@@ -148,6 +149,7 @@
                             app:cardCornerRadius="50dp">
 
                             <TextView
+                                android:id="@+id/date_return"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/tickets_8dp"
@@ -162,6 +164,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_where_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/tickets_16dp"
@@ -170,6 +173,7 @@
                             app:cardCornerRadius="50dp">
 
                             <TextView
+                                android:id="@+id/date_departure"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/tickets_8dp"
@@ -179,7 +183,8 @@
                                 android:gravity="center_vertical"
                                 android:text="24 фев, сб"
                                 android:textColor="@color/white"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                tools:ignore="HardcodedText" />
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView

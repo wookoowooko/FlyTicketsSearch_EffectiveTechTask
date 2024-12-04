@@ -27,8 +27,6 @@ class ModalBottomSheetViewModel(
         ""
     )
 
-
-
     fun setFromEditText(newText: String) {
         viewModelScope.launch {
             val newUserInfo = UserFromModel(1, newText)

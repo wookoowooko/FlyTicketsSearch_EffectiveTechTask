@@ -112,7 +112,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 bottomSheetViewModel.setFromEditText(editable.toString())
             }
 
-
             editTextWhereModal.addTextChangedListener { editable ->
                 val inputText = editable.toString()
                 if (inputText.isNotEmpty()) {
@@ -130,7 +129,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     }
                 }
             }
-
 
             closeWhere.setOnClickListener {
                 editTextWhereModal.text.clear()
