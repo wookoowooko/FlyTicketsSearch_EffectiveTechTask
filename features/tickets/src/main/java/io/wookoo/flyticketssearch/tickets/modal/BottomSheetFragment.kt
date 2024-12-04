@@ -92,10 +92,18 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 editTextWhereModal.setSelection(editTextWhereModal.text.length)
             }
 
-            hardWay.setOnClickListener {
-                onDismiss(checkNotNull(dialog))
+            setCardClickListener(hardWay) {
                 navigationCallback.navigateToHardWayStubFragment()
             }
+
+            setCardClickListener(daysOffCard) {
+                navigationCallback.navigateToDaysOffStubFragment()
+            }
+
+            setCardClickListener(fireTicketsCard) {
+                navigationCallback.navigateToFireTicketsStubFragment()
+            }
+
 
             editTextFromModal.filters = arrayOf(inputFilter)
             editTextWhereModal.filters = arrayOf(inputFilter)
@@ -110,6 +118,13 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         }
 
         return binding.root
+    }
+
+    private fun setCardClickListener(card: View, navigateAction: () -> Unit) {
+        card.setOnClickListener {
+            onDismiss(checkNotNull(dialog))
+            navigateAction()
+        }
     }
 
 //    private fun configModal() {

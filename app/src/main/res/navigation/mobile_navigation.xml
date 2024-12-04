@@ -13,10 +13,29 @@
         <action
             android:id="@+id/action_navigation_fly_to_hardWayStubFragment"
             app:destination="@id/hardWayStubFragment" />
+        <action
+            android:id="@+id/action_navigation_fly_to_daysOffStubFragment"
+            app:destination="@id/daysOffStubFragment" />
+        <action
+            android:id="@+id/action_navigation_fly_to_fireTicketsStubFragment"
+            app:destination="@id/fireTicketsStubFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/hardWayStubFragment"
         android:name="io.wookoo.flyticketssearch.stubs.HardWayStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+    <fragment
+        android:id="@+id/daysOffStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.DaysOffStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+    <fragment
+        android:id="@+id/fireTicketsStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.FireTicketsStubFragment"
         android:label="Hard Way Stub"
         tools:layout="@layout/fragment_hard_way_stub" />
 

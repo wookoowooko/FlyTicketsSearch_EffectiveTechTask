@@ -42,6 +42,14 @@ class MainActivity : AppCompatActivity(), INavigationCallback {
         navController.navigate(R.id.action_navigation_fly_to_hardWayStubFragment)
     }
 
+    override fun navigateToDaysOffStubFragment() {
+        navController.navigate(R.id.action_navigation_fly_to_daysOffStubFragment)
+    }
+
+    override fun navigateToFireTicketsStubFragment() {
+        navController.navigate(R.id.action_navigation_fly_to_fireTicketsStubFragment)
+    }
+
     override fun goBack() {
         navController.popBackStack()
     }
