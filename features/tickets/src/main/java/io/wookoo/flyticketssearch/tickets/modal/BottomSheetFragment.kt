@@ -120,7 +120,12 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                         delay(1000)
                         if (editable.toString() == inputText) {
                             onDismiss(checkNotNull(dialog))
-                            navigationCallback.navigateToSearchResultsScreen()
+
+                            val bundle = Bundle().apply {
+                                putString("searchQueryWhere", inputText)
+                                putString("searchQueryFrom", editTextFromModal.text.toString())
+                            }
+                            navigationCallback.navigateToSearchResultsScreen(bundle)
                         }
                     }
                 }

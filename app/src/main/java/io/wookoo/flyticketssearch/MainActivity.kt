@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity(), INavigationCallback {
         navController.navigate(R.id.actionNavigateToFireTicketsStubFragment)
     }
 
-    override fun navigateToSearchResultsScreen() {
-        navController.navigate(R.id.actionNavigateToSearchResultsFragment)
+    override fun navigateToSearchResultsScreen(bundle: Bundle) {
+        navController.navigate(R.id.actionNavigateToSearchResultsFragment, bundle)
     }
 
     override fun goBack() {

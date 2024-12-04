@@ -38,9 +38,12 @@ android {
 }
 
 dependencies {
-
-    implementation(projects.core.data)
-    implementation(projects.uiCatalog)
+    projects.apply {
+        implementation(core.data)
+        implementation(uiCatalog)
+        implementation(logger)
+    }
+    implementation(libs.bundles.koin.bundle)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
