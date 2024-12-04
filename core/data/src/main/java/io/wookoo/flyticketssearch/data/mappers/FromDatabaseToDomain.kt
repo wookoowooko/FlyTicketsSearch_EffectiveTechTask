@@ -5,7 +5,14 @@ import io.wookoo.flyticketssearch.domain.models.UserFromModel
 
 fun UserFromEntity.toUserFromModel(): UserFromModel {
     return UserFromModel(
-        lastUserInput = lastUserInput
+        id = this.id,
+        lastUserInput = this.lastUserInput
     )
+}
 
+fun UserFromModel.toUserFromEntity(): UserFromEntity {
+    return UserFromEntity(
+        id = this.id,
+        lastUserInput = this.lastUserInput
+    )
 }

@@ -15,11 +15,11 @@ class MasterRepositoryImpl(
         return networkApi.getAllOffers()
     }
 
-    override suspend fun insertUserInfo(userInput: String) {
-        database.insertUserInfo(userInput)
-    }
-
     override fun getUserInfo(): Flow<UserFromModel> {
         return database.getUserInfo()
+    }
+
+    override suspend fun saveUserInfo(userInfo: UserFromModel) {
+        database.saveUserInfo(userInfo)
     }
 }

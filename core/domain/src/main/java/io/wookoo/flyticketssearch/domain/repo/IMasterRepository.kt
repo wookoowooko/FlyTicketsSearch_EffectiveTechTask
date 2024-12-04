@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface IMasterRepository {
     fun getAllOffers(): Flow<List<OfferModel>>
-    suspend fun insertUserInfo(userInput: String)
     fun getUserInfo(): Flow<UserFromModel>
+    suspend fun saveUserInfo(userInfo: UserFromModel)
 }

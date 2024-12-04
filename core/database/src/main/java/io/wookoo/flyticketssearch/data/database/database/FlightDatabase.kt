@@ -23,7 +23,7 @@ fun flightDatabase(applicationContext: Context): FlightDatabase {
         Room.databaseBuilder(
             checkNotNull(applicationContext.applicationContext),
             FlightDatabaseRoom::class.java,
-            "flight_database"
+            "flight_database.db"
         ).addMigrations()
             .build()
     return FlightDatabase(flightDatabase)

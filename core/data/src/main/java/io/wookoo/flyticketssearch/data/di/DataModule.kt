@@ -17,5 +17,4 @@ val dataModule = module {
     singleOf(::NetworkApiImpl) { bind<INetworkApi>() }
     singleOf(::MasterRepositoryImpl) { bind<IMasterRepository>() }
     singleOf(::FlightDataBaseImpl) { bind<IFlightDatabase>() }
-
 } + networkModule + domainModule + databaseModule

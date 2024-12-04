@@ -1,5 +1,6 @@
 package io.wookoo.flyticketssearch.domain.models
 
 data class UserFromModel(
-    val lastUserInput: String
+    val id: Long = -1L,
+    val lastUserInput: String = ""
 )

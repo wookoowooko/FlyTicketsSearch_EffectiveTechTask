@@ -1,11 +1,12 @@
 package io.wookoo.flyticketssearch.data.repo
 
 import io.wookoo.flyticketssearch.data.database.database.FlightDatabase
+import io.wookoo.flyticketssearch.data.mappers.toUserFromEntity
 import io.wookoo.flyticketssearch.data.mappers.toUserFromModel
 import io.wookoo.flyticketssearch.domain.models.UserFromModel
 import io.wookoo.flyticketssearch.domain.repo.IFlightDatabase
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 
 class FlightDataBaseImpl(
     flightDatabase: FlightDatabase
@@ -14,14 +15,12 @@ class FlightDataBaseImpl(
     private val userFromDao = flightDatabase.userFromDao
 
     override fun getUserInfo(): Flow<UserFromModel> {
-        return userFromDao.getUserInfo().map { userFromEntity ->
-            userFromEntity.toUserFromModel()
+        return userFromDao.getUserInfo().mapNotNull { userFromEntity ->
+            userFromEntity?.toUserFromModel()
         }
     }
 
-    override suspend fun insertUserInfo(userInput: String) {
-        userFromDao.insertUserInfo(userInput)
+    override suspend fun saveUserInfo(userFromModel: UserFromModel) {
+        userFromDao.saveUserInfo(userFromModel.toUserFromEntity())
     }
-
-
 }

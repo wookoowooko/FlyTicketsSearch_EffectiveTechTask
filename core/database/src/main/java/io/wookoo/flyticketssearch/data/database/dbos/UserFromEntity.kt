@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class UserFromEntity(
 
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    val id: Long,
 
     @ColumnInfo(name = "last_user_input")
     val lastUserInput: String

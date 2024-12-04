@@ -7,5 +7,5 @@ interface IFlightDatabase {
 
     fun getUserInfo(): Flow<UserFromModel>
 
-    suspend fun insertUserInfo(userInput: String)
+    suspend fun saveUserInfo(userFromModel: UserFromModel)
 }
