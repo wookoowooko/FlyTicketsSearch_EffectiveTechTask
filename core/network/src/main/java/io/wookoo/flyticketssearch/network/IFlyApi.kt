@@ -1,6 +1,7 @@
 package io.wookoo.flyticketssearch.network
 
 import io.wookoo.flyticketssearch.network.dtos.responses.OfferResponse
+import io.wookoo.flyticketssearch.network.dtos.responses.TicketResponse
 import io.wookoo.flyticketssearch.network.dtos.responses.TicketsOffersResponse
 import ir.logicbase.mockfit.Mock
 import retrofit2.Response
@@ -14,4 +15,8 @@ interface IFlyApi {
     @Mock("offers_tickets.json")
     @GET("list2")
     suspend fun getTicketsOffers(): Response<TicketsOffersResponse>
+
+    @Mock("tickets.json")
+    @GET("list3")
+    suspend fun getTickets(): Response<TicketResponse>
 }

@@ -3,6 +3,7 @@ package io.wookoo.flyticketssearch.data.repo
 import io.wookoo.flyticketssearch.domain.models.OfferModel
 import io.wookoo.flyticketssearch.domain.models.TicketOfferModel
 import io.wookoo.flyticketssearch.domain.models.UserFromModel
+import io.wookoo.flyticketssearch.domain.models.info.TicketModel
 import io.wookoo.flyticketssearch.domain.repo.IFlightDatabase
 import io.wookoo.flyticketssearch.domain.repo.IMasterRepository
 import io.wookoo.flyticketssearch.domain.repo.INetworkApi
@@ -22,6 +23,10 @@ class MasterRepositoryImpl(
 
     override fun getUserInfo(): Flow<UserFromModel> {
         return database.getUserInfo()
+    }
+
+    override fun getTickets(): Flow<List<TicketModel>> {
+        return networkApi.getTickets()
     }
 
     override suspend fun saveUserInfo(userInfo: UserFromModel) {

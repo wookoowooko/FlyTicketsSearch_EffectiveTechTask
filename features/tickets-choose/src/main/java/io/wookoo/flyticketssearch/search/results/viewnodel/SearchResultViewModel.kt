@@ -23,10 +23,10 @@ class SearchResultViewModel(
     val uiTicketsOffers = _uiTicketsOffers.asStateFlow()
 
     init {
-        ticketsOffers()
+        fetchTicketsOffers()
     }
 
-    private fun ticketsOffers() {
+    private fun fetchTicketsOffers() {
         viewModelScope.launch {
             masterRepository.getAllTicketOffers().collect { ticketsOffers ->
                 val uiTicketOffers = ticketsOffers.map { offerModel ->
