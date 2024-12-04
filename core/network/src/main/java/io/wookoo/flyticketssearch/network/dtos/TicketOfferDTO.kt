@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 data class TicketOfferDTO(
 
     @Json(name = "id")
-    val id: Int,
+    val id: Long,
 
     @Json(name = "title")
     val title: String,

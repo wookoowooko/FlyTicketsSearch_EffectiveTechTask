@@ -17,4 +17,5 @@ kotlin {
 dependencies{
     implementation(libs.coroutines)
     implementation(libs.koin.core)
+    testImplementation(libs.junit)
 }

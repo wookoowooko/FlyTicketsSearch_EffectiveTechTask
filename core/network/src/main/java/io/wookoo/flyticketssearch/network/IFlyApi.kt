@@ -12,6 +12,6 @@ interface IFlyApi {
     suspend fun getOffers(): Response<OfferResponse>
 
     @Mock("offers_tickets.json")
-    @GET("list")
+    @GET("list2")
     suspend fun getTicketsOffers(): Response<TicketsOffersResponse>
 }
