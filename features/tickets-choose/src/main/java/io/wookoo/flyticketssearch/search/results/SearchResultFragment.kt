@@ -57,6 +57,10 @@ class SearchResultFragment : Fragment() {
 //
 //                editTextWhere.setOnClickListener { showBottomSheet("where") }
 //                editTextFrom.setOnClickListener { showBottomSheet("from") }
+
+            backClick.setOnClickListener{
+                navigationCallback.goBack()
+            }
         }
         return root
     }

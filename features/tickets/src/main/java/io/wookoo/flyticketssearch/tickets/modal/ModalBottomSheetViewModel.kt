@@ -6,7 +6,6 @@ import io.wookoo.flyticketssearch.domain.models.UserFromModel
 import io.wookoo.flyticketssearch.domain.repo.IMasterRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ticket_fragment_title">Поиск дешевых авиабилетов</string>
-    <string name="tickets_from_hint">Откуда - Москва</string>
-    <string name="tickets_where_hint">Куда - Турция</string>
     <string name="hard_way">Сложный маршрут</string>
     <string name="everywhere">Куда угодно</string>
     <string name="days_off">Выходные</string>

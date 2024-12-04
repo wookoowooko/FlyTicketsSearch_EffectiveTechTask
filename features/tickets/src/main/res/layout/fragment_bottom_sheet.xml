@@ -55,10 +55,11 @@
                     android:textSize="16sp" />
 
                 <View
+                    android:layout_marginHorizontal="@dimen/tickets_8dp"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="@dimen/tickets_8dp"
-                    android:background="@color/grey_seven" />
+                    android:background="@color/grey_four" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

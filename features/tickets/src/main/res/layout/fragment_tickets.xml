@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:paddingTop="?attr/actionBarSize"
     tools:context=".screen.TicketsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,12 +40,12 @@
             app:layout_constraintTop_toBottomOf="@+id/label_tickets">
 
             <androidx.cardview.widget.CardView
-                app:cardElevation="@dimen/tickets_10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/tickets_16dp"
                 app:cardBackgroundColor="@color/grey_four"
-                app:cardCornerRadius="@dimen/tickets_10dp">
+                app:cardCornerRadius="@dimen/tickets_10dp"
+                app:cardElevation="@dimen/tickets_10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -66,8 +67,6 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:focusable="false"
-                            android:clickable="false"
                             android:id="@+id/edit_text_from"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
@@ -75,6 +74,8 @@
                             android:layout_weight="1"
                             android:autofillHints=""
                             android:background="@null"
+                            android:clickable="false"
+                            android:focusable="false"
                             android:fontFamily="@font/regular"
                             android:hint="@string/tickets_from_hint"
                             android:textColor="?attr/colorOnPrimary"
@@ -84,24 +85,27 @@
 
                         </EditText>
 
-                        <com.google.android.material.divider.MaterialDivider
+
+                        <View
                             android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginHorizontal="@dimen/tickets_8dp" />
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="@dimen/tickets_8dp"
+                            android:background="@color/grey_six" />
+
 
                         <EditText
-                            android:focusable="false"
                             android:id="@+id/edit_text_where"
-                            android:textColorHint="@color/grey_six"
-                            android:hint="@string/tickets_where_hint"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_margin="@dimen/tickets_8dp"
                             android:layout_weight="1"
                             android:autofillHints=""
                             android:background="@null"
+                            android:focusable="false"
                             android:fontFamily="@font/regular"
+                            android:hint="@string/tickets_where_hint"
                             android:textColor="?attr/colorOnPrimary"
+                            android:textColorHint="@color/grey_six"
                             android:textFontWeight="600"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -126,12 +130,12 @@
             app:layout_constraintTop_toBottomOf="@+id/search_card" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:orientation="horizontal"
             android:id="@+id/ticket_recycler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/tickets_16dp"
             android:layout_marginTop="@dimen/tickets_26dp"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_" />
 
