@@ -3,11 +3,15 @@ package io.wookoo.flyticketssearch.tickets.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.wookoo.flyticketssearch.domain.models.OfferModel
+import io.wookoo.flyticketssearch.domain.models.UserFromModel
 import io.wookoo.flyticketssearch.domain.repo.IMasterRepository
 import io.wookoo.flyticketssearch.domain.usecases.FormatPriceUseCase
 import io.wookoo.flyticketssearch.tickets.ui.UiOffer
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class TicketsViewModel(
@@ -17,6 +21,10 @@ class TicketsViewModel(
 
     private val _uiOffer = MutableStateFlow<List<UiOffer>>(emptyList())
     val uiOffer = _uiOffer.asStateFlow()
+
+    val textFrom: StateFlow<UserFromModel> = masterRepository.getUserInfo()
+        .stateIn(viewModelScope, SharingStarted.Lazily, UserFromModel())
+
 
     init {
         loadOffers()

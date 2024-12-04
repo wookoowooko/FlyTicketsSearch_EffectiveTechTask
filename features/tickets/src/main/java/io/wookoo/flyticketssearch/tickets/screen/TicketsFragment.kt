@@ -31,8 +31,15 @@ class TicketsFragment : Fragment() {
         val root: View = binding.root
 
         lifecycleScope.launch {
-            ticketsViewModel.uiOffer.collect { offers ->
-                ticketsAdapter.items = offers
+            launch {
+                ticketsViewModel.uiOffer.collect { offers ->
+                    ticketsAdapter.items = offers
+                }
+            }
+            launch {
+                ticketsViewModel.textFrom.collect { textFrom ->
+                    binding.editTextFrom.setText(textFrom.lastUserInput)
+                }
             }
         }
 
