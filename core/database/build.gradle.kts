@@ -1,12 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.fly.tickets.detekt)
-    alias(libs.plugins.kapt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidx.room)
 }
 
 android {
-    namespace = "io.wookoo.flyticketssearch.network"
+    namespace = "io.wookoo.flyticketssearch.data.database"
     compileSdk = 35
 
     defaultConfig {
@@ -26,25 +26,27 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "21"
+        jvmTarget = "11"
     }
 }
 
 dependencies {
-    api(libs.bundles.network)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    implementation(projects.core.domain)
     implementation(libs.koin.core)
-    implementation(projects.logger)
-    kapt(libs.mock.fit.compiler)
-
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+room {
+    schemaDirectory("${rootProject.projectDir}/schemas")
 }
