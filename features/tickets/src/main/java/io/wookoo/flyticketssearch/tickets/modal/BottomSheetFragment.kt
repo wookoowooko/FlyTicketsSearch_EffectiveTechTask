@@ -9,11 +9,13 @@ import android.view.Window
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import io.wookoo.flyticketssearch.logger.MyLogger.logger
 import io.wookoo.flyticketssearch.tickets.databinding.FragmentBottomSheetBinding
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private var _binding: FragmentBottomSheetBinding? = null
+
 
     private val binding: FragmentBottomSheetBinding
         get() = checkNotNull(_binding)
@@ -42,6 +44,13 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
+        val args = arguments?.getString("flag")
+        logger.info("bundle", "$args")
+
+        when(args){
+            "from" -> binding.editTextFromModal.requestFocus()
+            "where" -> binding.editTextWhereModal.requestFocus()
+        }
 
 //        binding.closeButton.setOnClickListener {
 //            dismiss()

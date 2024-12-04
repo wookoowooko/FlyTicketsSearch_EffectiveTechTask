@@ -26,6 +26,7 @@ class TicketsFragment : Fragment() {
     private val ticketsViewModel: TicketsViewModel by viewModel()
     private val ticketsAdapter = OffersAdapter(itemClickedListener = {})
 
+
     private val prefs by lazy {
         requireContext().getSharedPreferences(
             "prefs",
@@ -88,13 +89,19 @@ class TicketsFragment : Fragment() {
                 layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             }
 
-            searchCard.setOnClickListener {
-                val bottomSheetFragment = BottomSheetFragment()
-                bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
-            }
+            editTextWhere.setOnClickListener { showBottomSheet("where") }
+            editTextFrom.setOnClickListener { showBottomSheet("from") }
         }
         return root
     }
+    private fun showBottomSheet(flag: String) {
+        BottomSheetFragment().apply {
+            arguments = Bundle().apply { putString("flag", flag) }
+        }.also {
+            it.show(parentFragmentManager, it.tag)
+        }
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
