@@ -5,4 +5,5 @@
     <string name="filters">фильтры</string>
     <string name="races">Прямые рейсы</string>
     <string name="back">обратно</string>
+    <string name="stub_passengers">1,эконом</string>
 </resources>

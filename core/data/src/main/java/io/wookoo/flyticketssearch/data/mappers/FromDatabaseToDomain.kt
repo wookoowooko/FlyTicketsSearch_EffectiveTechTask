@@ -9,10 +9,3 @@ fun UserFromEntity.toUserFromModel(): UserFromModel {
         lastUserInput = this.lastUserInput
     )
 }
-
-fun UserFromModel.toUserFromEntity(): UserFromEntity {
-    return UserFromEntity(
-        id = this.id,
-        lastUserInput = this.lastUserInput
-    )
-}

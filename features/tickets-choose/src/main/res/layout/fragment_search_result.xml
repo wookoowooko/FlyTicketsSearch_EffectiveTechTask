@@ -199,13 +199,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/tickets_8dp"
-                                android:drawableStart="@drawable/ic_passenger"
                                 android:drawablePadding="@dimen/tickets_8dp"
                                 android:fontFamily="@font/light_italic"
                                 android:gravity="center_vertical"
-                                android:text="1,эконом"
+                                android:text="@string/stub_passengers"
                                 android:textColor="@color/white"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                app:drawableStartCompat="@drawable/ic_passenger" />
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
@@ -219,13 +219,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/tickets_8dp"
-                                android:drawableStart="@drawable/ic_filters"
                                 android:drawablePadding="@dimen/tickets_8dp"
                                 android:fontFamily="@font/light_italic"
                                 android:gravity="center_vertical"
                                 android:text="@string/filters"
                                 android:textColor="@color/white"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                app:drawableStartCompat="@drawable/ic_filters" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
 
@@ -381,13 +381,13 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:drawableEnd="@drawable/arr"
                                         android:fontFamily="@font/bold_italic"
                                         android:gravity="end"
                                         android:lineHeight="16.8dp"
                                         android:text="2 390 ₽"
                                         android:textColor="@color/special_blue"
-                                        android:textSize="14sp" />
+                                        android:textSize="14sp"
+                                        app:drawableEndCompat="@drawable/arr" />
                                 </LinearLayout>
 
                                 <TextView

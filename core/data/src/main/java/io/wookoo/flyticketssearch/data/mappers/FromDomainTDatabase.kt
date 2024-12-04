@@ -1,10 +1,11 @@
 package io.wookoo.flyticketssearch.data.mappers
 
-import io.wookoo.flyticketssearch.domain.models.PriceModel
-import io.wookoo.flyticketssearch.network.dtos.PriceDTO
+import io.wookoo.flyticketssearch.data.database.dbos.UserFromEntity
+import io.wookoo.flyticketssearch.domain.models.UserFromModel
 
-fun PriceDTO.toPriceModel(): PriceModel {
-    return PriceModel(
-        value = value
+fun UserFromModel.toUserFromEntity(): UserFromEntity {
+    return UserFromEntity(
+        id = this.id,
+        lastUserInput = this.lastUserInput
     )
 }

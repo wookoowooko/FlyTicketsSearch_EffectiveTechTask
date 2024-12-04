@@ -1,8 +1,8 @@
 package io.wookoo.flyticketssearch.domain.models
 
-data class OfferModel(
-    val id: Long,
+data class TicketOfferModel(
+    val id: Int,
     val title: String,
-    val town: String,
+    val timeRange: List<String>,
     val price: PriceModel
 )
