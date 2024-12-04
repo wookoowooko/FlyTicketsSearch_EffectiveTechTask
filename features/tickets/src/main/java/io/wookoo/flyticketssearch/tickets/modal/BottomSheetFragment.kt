@@ -1,21 +1,16 @@
 package io.wookoo.flyticketssearch.tickets.modal
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
-import android.view.View.OnTouchListener
 import android.view.ViewGroup
-import android.view.Window
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import io.wookoo.flyticketssearch.tickets.R
 import io.wookoo.flyticketssearch.tickets.databinding.FragmentBottomSheetBinding
+import io.wookoo.flyticketssearch.tickets.ui.UiDepartures
 import io.wookoo.flyticketssearch.tickets.ui.inputFilter
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,10 +26,9 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        configModal()
+//        configModal()
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,7 +49,33 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                         editTextFromModal.setText(lastEditedValue)
                         editTextFromModal.setSelection(lastEditedValue.length)
                     }
+
+
                 }
+            }
+
+            val listOfDepartures = listOf(
+                UiDepartures(
+                    io.wookoo.tickets.shared.R.drawable.istanbul, R.string.stambul
+                ),
+                UiDepartures(
+                    io.wookoo.tickets.shared.R.drawable.sochi, R.string.sochi_text
+                ),
+                UiDepartures(
+                    io.wookoo.tickets.shared.R.drawable.phuket, R.string.phuket
+                )
+            )
+
+            val departuresAdapter = ListDelegationAdapter(
+                departuresAdapter {
+                    editTextWhereModal.setText(it.town)
+                    editTextWhereModal.setSelection(editTextWhereModal.text.length)
+                }
+            ).apply {
+                items = listOfDepartures
+            }
+            depRec.apply {
+                adapter = departuresAdapter
             }
 
             editTextFromModal.filters = arrayOf(inputFilter)
@@ -65,7 +85,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 bottomSheetViewModel.setEditText(editable.toString())
             }
 
-            closeWhere.setOnClickListener{
+            closeWhere.setOnClickListener {
                 editTextWhereModal.text.clear()
             }
         }
@@ -73,18 +93,18 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
-    private fun configModal() {
-        val bottomSheetDialog = dialog as? BottomSheetDialog
-        bottomSheetDialog?.behavior?.apply {
-            val rectangle = Rect()
-            val window: Window = requireActivity().window
-            window.decorView.getWindowVisibleDisplayFrame(rectangle)
-            val statusBarHeight = rectangle.top * 2
-            peekHeight = resources.displayMetrics.heightPixels - statusBarHeight
-            state = BottomSheetBehavior.STATE_COLLAPSED
-//                state = BottomSheetBehavior.STATE_EXPANDED
-        }
-    }
+//    private fun configModal() {
+//        val bottomSheetDialog = dialog as? BottomSheetDialog
+//        bottomSheetDialog?.behavior?.apply {
+//            val rectangle = Rect()
+//            val window: Window = requireActivity().window
+//            window.decorView.getWindowVisibleDisplayFrame(rectangle)
+//            val statusBarHeight = rectangle.top * 2
+//            peekHeight = resources.displayMetrics.heightPixels - statusBarHeight
+//            state = BottomSheetBehavior.STATE_COLLAPSED
+////                state = BottomSheetBehavior.STATE_EXPANDED
+//        }
+//    }
 
     override fun onDestroy() {
         super.onDestroy()
