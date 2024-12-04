@@ -4,5 +4,6 @@ interface INavigationCallback {
     fun navigateToHardWayStubFragment()
     fun navigateToDaysOffStubFragment()
     fun navigateToFireTicketsStubFragment()
+    fun navigateToSearchResultsScreen()
     fun goBack()
 }

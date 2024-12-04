@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), INavigationCallback {
 
         val navView: BottomNavigationView = binding.navView
 
-         navController = findNavController(R.id.nav_host_fragment_activity_main)
+        navController = findNavController(R.id.nav_host_fragment_activity_main)
 
 //        val appBarConfiguration = AppBarConfiguration(
 //            setOf(
@@ -39,15 +39,19 @@ class MainActivity : AppCompatActivity(), INavigationCallback {
     }
 
     override fun navigateToHardWayStubFragment() {
-        navController.navigate(R.id.action_navigation_fly_to_hardWayStubFragment)
+        navController.navigate(R.id.actionNavigateToHardWayStubFragment)
     }
 
     override fun navigateToDaysOffStubFragment() {
-        navController.navigate(R.id.action_navigation_fly_to_daysOffStubFragment)
+        navController.navigate(R.id.actionNavigateToDaysOffStubFragment)
     }
 
     override fun navigateToFireTicketsStubFragment() {
-        navController.navigate(R.id.action_navigation_fly_to_fireTicketsStubFragment)
+        navController.navigate(R.id.actionNavigateToFireTicketsStubFragment)
+    }
+
+    override fun navigateToSearchResultsScreen() {
+        navController.navigate(R.id.actionNavigateToSearchResultsFragment)
     }
 
     override fun goBack() {

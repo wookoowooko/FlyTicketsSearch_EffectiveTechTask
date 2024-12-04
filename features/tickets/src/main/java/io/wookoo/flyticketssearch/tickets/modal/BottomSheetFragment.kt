@@ -14,9 +14,9 @@ import io.wookoo.flyticketssearch.tickets.R
 import io.wookoo.flyticketssearch.tickets.databinding.FragmentBottomSheetBinding
 import io.wookoo.flyticketssearch.tickets.ui.UiDepartures
 import io.wookoo.flyticketssearch.tickets.ui.inputFilter
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
@@ -54,7 +54,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
             }
 
             lifecycleScope.launch {
-                bottomSheetViewModel.whereEditText.collect { lastEditedValue ->
+                bottomSheetViewModel.fromEditText.collect { lastEditedValue ->
                     // check difference between last edited value and current value
                     if (editTextFromModal.text.toString() != lastEditedValue) {
                         editTextFromModal.setText(lastEditedValue)
@@ -65,13 +65,16 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
             val listOfDepartures = listOf(
                 UiDepartures(
-                    io.wookoo.tickets.shared.R.drawable.istanbul, R.string.stambul
+                    io.wookoo.tickets.shared.R.drawable.istanbul,
+                    R.string.stambul
                 ),
                 UiDepartures(
-                    io.wookoo.tickets.shared.R.drawable.sochi, R.string.sochi_text
+                    io.wookoo.tickets.shared.R.drawable.sochi,
+                    R.string.sochi_text
                 ),
                 UiDepartures(
-                    io.wookoo.tickets.shared.R.drawable.phuket, R.string.phuket
+                    io.wookoo.tickets.shared.R.drawable.phuket,
+                    R.string.phuket
                 )
             )
 
@@ -83,9 +86,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
             ).apply {
                 items = listOfDepartures
             }
-            depRec.apply {
-                adapter = departuresAdapter
-            }
+            depRec.adapter = departuresAdapter
 
             everywhere.setOnClickListener {
                 editTextWhereModal.setText(R.string.everywhere)
@@ -104,13 +105,27 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 navigationCallback.navigateToFireTicketsStubFragment()
             }
 
-
             editTextFromModal.filters = arrayOf(inputFilter)
             editTextWhereModal.filters = arrayOf(inputFilter)
 
             editTextFromModal.addTextChangedListener { editable ->
-                bottomSheetViewModel.setEditText(editable.toString())
+                bottomSheetViewModel.setFromEditText(editable.toString())
             }
+
+
+            editTextWhereModal.addTextChangedListener { editable ->
+                val inputText = editable.toString()
+                if (inputText.isNotEmpty()) {
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        delay(1000)
+                        if (editable.toString() == inputText) {
+                            onDismiss(checkNotNull(dialog))
+                            navigationCallback.navigateToSearchResultsScreen()
+                        }
+                    }
+                }
+            }
+
 
             closeWhere.setOnClickListener {
                 editTextWhereModal.text.clear()
@@ -136,7 +151,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 //            val statusBarHeight = rectangle.top * 2
 //            peekHeight = resources.displayMetrics.heightPixels - statusBarHeight
 //            state = BottomSheetBehavior.STATE_COLLAPSED
-////                state = BottomSheetBehavior.STATE_EXPANDED
+// //                state = BottomSheetBehavior.STATE_EXPANDED
 //        }
 //    }
 

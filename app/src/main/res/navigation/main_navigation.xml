@@ -11,14 +11,18 @@
         android:label="@string/title_fly"
         tools:layout="@layout/fragment_tickets">
         <action
-            android:id="@+id/action_navigation_fly_to_hardWayStubFragment"
+            android:id="@+id/actionNavigateToHardWayStubFragment"
             app:destination="@id/hardWayStubFragment" />
         <action
-            android:id="@+id/action_navigation_fly_to_daysOffStubFragment"
+            android:id="@+id/actionNavigateToDaysOffStubFragment"
             app:destination="@id/daysOffStubFragment" />
         <action
-            android:id="@+id/action_navigation_fly_to_fireTicketsStubFragment"
+            android:id="@+id/actionNavigateToFireTicketsStubFragment"
             app:destination="@id/fireTicketsStubFragment" />
+
+        <action
+            android:id="@+id/actionNavigateToSearchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
 
     </fragment>
     <fragment
@@ -39,6 +43,11 @@
         android:label="Hard Way Stub"
         tools:layout="@layout/fragment_hard_way_stub" />
 
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="io.wookoo.flyticketssearch.search.results.SearchResultFragment"
+        android:label="@string/ticket_search"
+        tools:layout="@layout/fragment_search_result" />
 
     <fragment
         android:id="@+id/navigation_hotels"

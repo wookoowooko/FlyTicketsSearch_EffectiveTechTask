@@ -6,4 +6,3 @@ data class UiOffer(
     val town: String,
     val price: String
 )
-

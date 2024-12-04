@@ -14,7 +14,7 @@ import io.wookoo.flyticketssearch.tickets.viewmodel.TicketsViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TicketsFragment: Fragment() {
+class TicketsFragment : Fragment() {
 
     private var _binding: FragmentTicketsBinding? = null
     private val binding get() = checkNotNull(_binding)

@@ -33,6 +33,7 @@
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/stubs" />
             <option value="$PROJECT_DIR$/features/tickets" />
+            <option value="$PROJECT_DIR$/features/tickets-choose" />
             <option value="$PROJECT_DIR$/logger" />
             <option value="$PROJECT_DIR$/ui-catalog" />
           </set>
