@@ -78,6 +78,11 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 adapter = departuresAdapter
             }
 
+            everywhere.setOnClickListener{
+                editTextWhereModal.setText(R.string.everywhere)
+                editTextWhereModal.setSelection(editTextWhereModal.text.length)
+            }
+
             editTextFromModal.filters = arrayOf(inputFilter)
             editTextWhereModal.filters = arrayOf(inputFilter)
 
