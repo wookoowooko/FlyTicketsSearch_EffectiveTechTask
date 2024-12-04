@@ -1,9 +1,13 @@
 package io.wookoo.flyticketssearch.tickets.modal
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.view.Window
 import androidx.core.widget.addTextChangedListener
@@ -15,6 +19,7 @@ import io.wookoo.flyticketssearch.tickets.databinding.FragmentBottomSheetBinding
 import io.wookoo.flyticketssearch.tickets.ui.inputFilter
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
@@ -29,6 +34,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         configModal()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -57,6 +63,10 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
             editTextFromModal.addTextChangedListener { editable ->
                 bottomSheetViewModel.setEditText(editable.toString())
+            }
+
+            closeWhere.setOnClickListener{
+                editTextWhereModal.text.clear()
             }
         }
 

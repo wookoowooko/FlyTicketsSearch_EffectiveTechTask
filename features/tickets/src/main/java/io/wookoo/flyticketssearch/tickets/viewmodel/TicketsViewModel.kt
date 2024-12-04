@@ -26,9 +26,12 @@ class TicketsViewModel(
         .stateIn(viewModelScope, SharingStarted.Lazily, UserFromModel())
 
 
+
+
     init {
         loadOffers()
     }
+
 
     private fun loadOffers() {
         viewModelScope.launch {
