@@ -1,5 +1,6 @@
 package io.wookoo.flyticketssearch.tickets.modal
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
 import io.wookoo.flyticketssearch.tickets.R
 import io.wookoo.flyticketssearch.tickets.databinding.FragmentBottomSheetBinding
 import io.wookoo.flyticketssearch.tickets.ui.UiDepartures
@@ -18,11 +20,20 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
+    private lateinit var navigationCallback: INavigationCallback
+
     private var _binding: FragmentBottomSheetBinding? = null
     private val binding: FragmentBottomSheetBinding
         get() = checkNotNull(_binding)
 
     private val bottomSheetViewModel by viewModel<ModalBottomSheetViewModel>()
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is INavigationCallback) {
+            navigationCallback = context
+        }
+    }
 
     override fun onStart() {
         super.onStart()
@@ -49,8 +60,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                         editTextFromModal.setText(lastEditedValue)
                         editTextFromModal.setSelection(lastEditedValue.length)
                     }
-
-
                 }
             }
 
@@ -78,9 +87,14 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 adapter = departuresAdapter
             }
 
-            everywhere.setOnClickListener{
+            everywhere.setOnClickListener {
                 editTextWhereModal.setText(R.string.everywhere)
                 editTextWhereModal.setSelection(editTextWhereModal.text.length)
+            }
+
+            hardWay.setOnClickListener {
+                onDismiss(checkNotNull(dialog))
+                navigationCallback.navigateToHardWayStubFragment()
             }
 
             editTextFromModal.filters = arrayOf(inputFilter)

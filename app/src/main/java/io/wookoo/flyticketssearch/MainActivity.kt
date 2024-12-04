@@ -2,12 +2,16 @@ package io.wookoo.flyticketssearch
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
 import io.wookoo.flyticketssearch.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), INavigationCallback {
+
+    private lateinit var navController: NavController
 
     private lateinit var binding: ActivityMainBinding
 
@@ -19,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+         navController = findNavController(R.id.nav_host_fragment_activity_main)
 
 //        val appBarConfiguration = AppBarConfiguration(
 //            setOf(
@@ -32,5 +36,13 @@ class MainActivity : AppCompatActivity() {
 //        )
 
         navView.setupWithNavController(navController)
+    }
+
+    override fun navigateToHardWayStubFragment() {
+        navController.navigate(R.id.action_navigation_fly_to_hardWayStubFragment)
+    }
+
+    override fun goBack() {
+        navController.popBackStack()
     }
 }

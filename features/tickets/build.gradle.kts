@@ -40,6 +40,7 @@ dependencies {
 
     projects.core.apply {
         api(domain)
+        implementation(data)
     }
 
     libs.apply {
