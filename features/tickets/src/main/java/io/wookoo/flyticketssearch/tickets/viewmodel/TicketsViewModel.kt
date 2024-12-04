@@ -25,13 +25,9 @@ class TicketsViewModel(
     val textFrom: StateFlow<UserFromModel> = masterRepository.getUserInfo()
         .stateIn(viewModelScope, SharingStarted.Lazily, UserFromModel())
 
-
-
-
     init {
         loadOffers()
     }
-
 
     private fun loadOffers() {
         viewModelScope.launch {

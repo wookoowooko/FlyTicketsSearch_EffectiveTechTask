@@ -55,10 +55,11 @@
                     android:textSize="16sp" />
 
                 <View
+                    android:layout_marginHorizontal="@dimen/tickets_8dp"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="@dimen/tickets_8dp"
-                    android:background="@color/grey_seven" />
+                    android:background="@color/grey_four" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -104,6 +105,7 @@
             android:weightSum="4">
 
             <LinearLayout
+                android:id="@+id/hard_way"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -175,6 +177,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/days_off_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -210,6 +213,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/fire_tickets_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_fly">
+
+    <fragment
+        android:id="@+id/navigation_fly"
+        android:name="io.wookoo.flyticketssearch.tickets.screen.TicketsFragment"
+        android:label="@string/title_fly"
+        tools:layout="@layout/fragment_tickets">
+        <action
+            android:id="@+id/actionNavigateToHardWayStubFragment"
+            app:destination="@id/hardWayStubFragment" />
+        <action
+            android:id="@+id/actionNavigateToDaysOffStubFragment"
+            app:destination="@id/daysOffStubFragment" />
+        <action
+            android:id="@+id/actionNavigateToFireTicketsStubFragment"
+            app:destination="@id/fireTicketsStubFragment" />
+
+        <action
+            android:id="@+id/actionNavigateToSearchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/hardWayStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.HardWayStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+    <fragment
+        android:id="@+id/daysOffStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.DaysOffStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+    <fragment
+        android:id="@+id/fireTicketsStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.FireTicketsStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="io.wookoo.flyticketssearch.search.results.SearchResultFragment"
+        android:label="@string/ticket_search"
+        tools:layout="@layout/fragment_search_result" />
+
+    <fragment
+        android:id="@+id/navigation_hotels"
+        android:name="io.wookoo.flyticketssearch.ui.dashboard.DashboardFragment"
+        android:label="@string/title_hotels"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_short"
+        android:name="io.wookoo.flyticketssearch.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>

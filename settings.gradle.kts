@@ -37,3 +37,5 @@ include(":core:data")
 
 include(":core:network")
 include(":core:database")
+include(":features:stubs")
+include(":features:tickets-choose")

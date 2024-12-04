@@ -1,0 +1,8 @@
+<resources>
+    <string name="show_all">Показать все</string>
+    <string name="price_label">Подписка на цену</string>
+    <string name="all_tikets_button">Посмотреть все билеты</string>
+    <string name="filters">фильтры</string>
+    <string name="races">Прямые рейсы</string>
+    <string name="back">обратно</string>
+</resources>

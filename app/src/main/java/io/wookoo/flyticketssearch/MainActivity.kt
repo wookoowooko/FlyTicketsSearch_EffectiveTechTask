@@ -2,12 +2,16 @@ package io.wookoo.flyticketssearch
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
 import io.wookoo.flyticketssearch.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), INavigationCallback {
+
+    private lateinit var navController: NavController
 
     private lateinit var binding: ActivityMainBinding
 
@@ -19,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        navController = findNavController(R.id.nav_host_fragment_activity_main)
 
 //        val appBarConfiguration = AppBarConfiguration(
 //            setOf(
@@ -32,5 +36,25 @@ class MainActivity : AppCompatActivity() {
 //        )
 
         navView.setupWithNavController(navController)
+    }
+
+    override fun navigateToHardWayStubFragment() {
+        navController.navigate(R.id.actionNavigateToHardWayStubFragment)
+    }
+
+    override fun navigateToDaysOffStubFragment() {
+        navController.navigate(R.id.actionNavigateToDaysOffStubFragment)
+    }
+
+    override fun navigateToFireTicketsStubFragment() {
+        navController.navigate(R.id.actionNavigateToFireTicketsStubFragment)
+    }
+
+    override fun navigateToSearchResultsScreen() {
+        navController.navigate(R.id.actionNavigateToSearchResultsFragment)
+    }
+
+    override fun goBack() {
+        navController.popBackStack()
     }
 }

@@ -43,6 +43,8 @@ dependencies {
 
     projects.features.apply {
         implementation(tickets)
+        implementation(stubs)
+        implementation(ticketsChoose)
     }
     projects.core.apply {
         implementation(data)

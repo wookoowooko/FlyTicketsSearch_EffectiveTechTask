@@ -14,20 +14,22 @@ class ModalBottomSheetViewModel(
     private val masterRepository: IMasterRepository
 ) : ViewModel() {
 
-    private val _whereEditText = MutableStateFlow("")
+    private val _fromEditText = MutableStateFlow("")
 
-    val whereEditText = combine(
-        _whereEditText,
+    val fromEditText = combine(
+        _fromEditText,
         masterRepository.getUserInfo()
-    ) { whereEditText, userInfo ->
-        whereEditText.ifEmpty { userInfo.lastUserInput }
+    ) { fromEditText, userInfo ->
+        fromEditText.ifEmpty { userInfo.lastUserInput }
     }.stateIn(
         viewModelScope,
         SharingStarted.WhileSubscribed(5000),
         ""
     )
 
-    fun setEditText(newText: String) {
+
+
+    fun setFromEditText(newText: String) {
         viewModelScope.launch {
             val newUserInfo = UserFromModel(1, newText)
             masterRepository.saveUserInfo(newUserInfo)
