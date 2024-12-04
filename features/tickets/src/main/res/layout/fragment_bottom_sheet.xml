@@ -37,7 +37,7 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/edit_text_from1"
+                    android:id="@+id/edit_text_from_modal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -61,7 +61,7 @@
                     android:background="@color/grey_seven" />
 
                 <EditText
-                    android:id="@+id/edit_text_where2"
+                    android:id="@+id/edit_text_where_modal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/tickets_8dp"

@@ -39,6 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/label_tickets">
 
             <androidx.cardview.widget.CardView
+                app:cardElevation="@dimen/tickets_10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/tickets_16dp"
@@ -64,7 +65,9 @@
                         android:layout_margin="@dimen/tickets_8dp"
                         android:orientation="vertical">
 
-                        <TextView
+                        <EditText
+                            android:focusable="false"
+                            android:clickable="false"
                             android:id="@+id/edit_text_from"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
@@ -79,14 +82,15 @@
                             android:textFontWeight="600"
                             android:textSize="16sp">
 
-                        </TextView>
+                        </EditText>
 
                         <com.google.android.material.divider.MaterialDivider
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
                             android:layout_marginHorizontal="@dimen/tickets_8dp" />
 
-                        <TextView
+                        <EditText
+                            android:focusable="false"
                             android:id="@+id/edit_text_where"
                             android:textColorHint="@color/grey_six"
                             android:hint="@string/tickets_where_hint"

@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        minSdk = 27
+        minSdk = 28
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -38,6 +38,7 @@ dependencies {
     projects.core.apply {
         api(domain)
         api(network)
+        api(database)
     }
     implementation(libs.koin.core)
     implementation(projects.logger)
