@@ -10,11 +10,14 @@ import io.wookoo.flyticketssearch.domain.repo.INetworkApi
 import io.wookoo.flyticketssearch.network.IFlyApi
 import io.wookoo.flyticketssearch.network.dtos.responses.OfferResponse
 import io.wookoo.flyticketssearch.network.dtos.responses.TicketsOffersResponse
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class NetworkApiImpl(
-    private val api: IFlyApi
+    private val api: IFlyApi,
+    private val ioDispatcher: CoroutineDispatcher
 ) : INetworkApi {
     override fun getAllOffers(): Flow<List<OfferModel>> {
         return flow {
@@ -27,7 +30,7 @@ class NetworkApiImpl(
                         }
                     )
                 }
-        }
+        }.flowOn(ioDispatcher)
     }
 
     override fun getAllTicketsOffers(): Flow<List<TicketOfferModel>> {
@@ -41,7 +44,7 @@ class NetworkApiImpl(
                         }
                     )
                 }
-        }
+        }.flowOn(ioDispatcher)
     }
 
     override fun getTickets(): Flow<List<TicketModel>> {
@@ -55,6 +58,6 @@ class NetworkApiImpl(
                         }
                     )
                 }
-        }
+        }.flowOn(ioDispatcher)
     }
 }
