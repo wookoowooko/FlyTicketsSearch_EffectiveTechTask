@@ -4,13 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class OfferResponse(
-    @Json(name = "offers")
-    val offers: List<OffersDTO>
-)
-
-@JsonClass(generateAdapter = true)
-data class OffersDTO(
+data class OfferDTO(
 
     @Json(name = "id")
     val id: Long,
@@ -23,11 +17,4 @@ data class OffersDTO(
 
     @Json(name = "price")
     val price: PriceDTO
-)
-
-@JsonClass(generateAdapter = true)
-data class PriceDTO(
-
-    @Json(name = "value")
-    val value: Int
 )

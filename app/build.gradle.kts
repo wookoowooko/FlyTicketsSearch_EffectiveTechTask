@@ -45,6 +45,7 @@ dependencies {
         implementation(tickets)
         implementation(stubs)
         implementation(ticketsChoose)
+        implementation(allTickets)
     }
     projects.core.apply {
         implementation(data)

@@ -112,7 +112,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 bottomSheetViewModel.setFromEditText(editable.toString())
             }
 
-
             editTextWhereModal.addTextChangedListener { editable ->
                 val inputText = editable.toString()
                 if (inputText.isNotEmpty()) {
@@ -120,12 +119,16 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                         delay(1000)
                         if (editable.toString() == inputText) {
                             onDismiss(checkNotNull(dialog))
-                            navigationCallback.navigateToSearchResultsScreen()
+
+                            val bundle = Bundle().apply {
+                                putString("searchQueryWhere", inputText)
+                                putString("searchQueryFrom", editTextFromModal.text.toString())
+                            }
+                            navigationCallback.navigateToSearchResultsFragment(bundle)
                         }
                     }
                 }
             }
-
 
             closeWhere.setOnClickListener {
                 editTextWhereModal.text.clear()

@@ -6,7 +6,3 @@ data class OfferModel(
     val town: String,
     val price: PriceModel
 )
-
-data class PriceModel(
-    val value: Int
-)
