@@ -8,4 +8,5 @@
     <dimen name="tickets_32dp">32dp</dimen>
     <dimen name="tickets_26dp">26dp</dimen>
     <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
 </resources>

@@ -124,7 +124,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                                 putString("searchQueryWhere", inputText)
                                 putString("searchQueryFrom", editTextFromModal.text.toString())
                             }
-                            navigationCallback.navigateToSearchResultsScreen(bundle)
+                            navigationCallback.navigateToSearchResultsFragment(bundle)
                         }
                     }
                 }

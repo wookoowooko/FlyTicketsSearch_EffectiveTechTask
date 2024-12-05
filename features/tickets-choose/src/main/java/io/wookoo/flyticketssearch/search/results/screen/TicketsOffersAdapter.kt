@@ -3,8 +3,8 @@ package io.wookoo.flyticketssearch.search.results.screen
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
+import io.wookoo.flyticketssearch.search.results.R
 import io.wookoo.flyticketssearch.search.results.databinding.TicketOfferItemBinding
-import io.wookoo.flyticketssearch.search.results.ui.MapImages.mapImagesFromId
 import io.wookoo.flyticketssearch.search.results.ui.UiTicketOffer
 
 private val diffCallback = object : DiffUtil.ItemCallback<UiTicketOffer>() {
@@ -48,11 +48,18 @@ class TicketsOffersAdapter(
                     departureTimes.text = item.timeRange
                     price.text = item.price
                     ticketOfferImage.setImageResource(
-                        mapImagesFromId(
-                            item.id.toInt()
-                        )
+                        getIconResourceByPosition(bindingAdapterPosition)
                     )
                 }
             }
         }
+
+    private fun getIconResourceByPosition(position: Int): Int {
+        return when (position) {
+            0 -> io.wookoo.tickets.shared.R.drawable.special_orange_placeholder
+            1 -> io.wookoo.tickets.shared.R.drawable.special_blue_placeholder
+            2 -> io.wookoo.tickets.shared.R.drawable.special_white_placeholder
+            else -> io.wookoo.tickets.shared.R.drawable.special_white_placeholder
+        }
+    }
 }

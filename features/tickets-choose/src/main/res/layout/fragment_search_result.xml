@@ -305,6 +305,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/show_all_tickets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
@@ -320,7 +321,7 @@
                     android:padding="11dp"
                     android:text="@string/all_tikets_button"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/tickets_16dp" />
+                    android:textSize="@dimen/text_16sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -341,15 +342,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal|center_vertical"
-                        android:drawableStart="@drawable/ic_notifications"
                         android:drawablePadding="@dimen/tickets_8dp"
-                        android:drawableTint="@color/special_blue"
                         android:gravity="start"
                         android:lineHeight="19.2dp"
                         android:text="@string/price_label"
                         android:textColor="@color/white"
                         android:textFontWeight="400"
-                        android:textSize="@dimen/text_16sp" />
+                        android:textSize="@dimen/text_16sp"
+                        app:drawableStartCompat="@drawable/ic_notifications"
+                        app:drawableTint="@color/special_blue" />
 
                     <Switch
                         android:id="@+id/simpleSwitch"

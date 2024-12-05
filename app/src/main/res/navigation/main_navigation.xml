@@ -25,6 +25,15 @@
             app:destination="@id/searchResultsFragment" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/allTicketsFragment"
+        android:name="io.wookoo.flyticketssearch.all.tickets.screen.AllTicketsFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_all_tickets" >
+
+    </fragment>
+
     <fragment
         android:id="@+id/hardWayStubFragment"
         android:name="io.wookoo.flyticketssearch.stubs.HardWayStubFragment"
@@ -48,6 +57,10 @@
         android:name="io.wookoo.flyticketssearch.search.results.screen.SearchResultFragment"
         android:label="@string/ticket_search"
         tools:layout="@layout/fragment_search_result" >
+
+        <action
+            android:id="@+id/actionNavigateToAllTicketsFragment"
+            app:destination="@id/allTicketsFragment" />
 
         <argument
             android:name="searchQueryFrom"

@@ -31,6 +31,7 @@
             <option value="$PROJECT_DIR$/core/domain" />
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/all-tickets" />
             <option value="$PROJECT_DIR$/features/stubs" />
             <option value="$PROJECT_DIR$/features/tickets" />
             <option value="$PROJECT_DIR$/features/tickets-choose" />
