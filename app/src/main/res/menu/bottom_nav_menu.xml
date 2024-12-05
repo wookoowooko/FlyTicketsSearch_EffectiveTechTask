@@ -12,7 +12,7 @@
         android:title="@string/title_hotels" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_more"
         android:icon="@drawable/ic_short"
         android:title="@string/title_short" />
 

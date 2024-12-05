@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import io.wookoo.flyticketssearch.databinding.FragmentMoreBinding
-import io.wookoo.flyticketssearch.databinding.FragmentNotificationsBinding
 
 class MoreStub : Fragment() {
 
