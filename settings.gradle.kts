@@ -30,13 +30,18 @@ include(":logger")
 
 include(":ui-catalog")
 
-include(":features:tickets")
+include(":features:home")
+include(":features:home:stubs")
+include(":features:home:tickets-choose")
+include(":features:home:tickets-choose:all-tickets")
+
+
 
 include(":core:domain")
 include(":core:data")
 
 include(":core:network")
 include(":core:database")
-include(":features:stubs")
-include(":features:tickets-choose")
-include(":features:all-tickets")
+
+
+

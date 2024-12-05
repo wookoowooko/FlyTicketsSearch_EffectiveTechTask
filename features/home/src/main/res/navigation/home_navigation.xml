@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navigation_fly"
+    android:id="@+id/home_navigation">
+
+    <include app:graph="@navigation/tickets_search_result_navigation"/>
+
+    <fragment
+        android:id="@+id/navigation_fly"
+        android:name="io.wookoo.flyticketssearch.tickets.screen.TicketsFragment"
+        android:label="@string/title_fly"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionNavigateToHardWayStubFragment"
+            app:destination="@id/hardWayStubFragment" />
+        <action
+            android:id="@+id/actionNavigateToDaysOffStubFragment"
+            app:destination="@id/daysOffStubFragment" />
+        <action
+            android:id="@+id/actionNavigateToFireTicketsStubFragment"
+            app:destination="@id/fireTicketsStubFragment" />
+
+        <action
+            android:id="@+id/actionToTicketsSearchResultNavigation"
+            app:destination="@id/tickets_search_result_navigation" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/hardWayStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.HardWayStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+    <fragment
+        android:id="@+id/daysOffStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.DaysOffStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+    <fragment
+        android:id="@+id/fireTicketsStubFragment"
+        android:name="io.wookoo.flyticketssearch.stubs.FireTicketsStubFragment"
+        android:label="Hard Way Stub"
+        tools:layout="@layout/fragment_hard_way_stub" />
+
+
+</navigation>

@@ -6,10 +6,9 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
 import io.wookoo.flyticketssearch.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), INavigationCallback {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
 
@@ -26,29 +25,5 @@ class MainActivity : AppCompatActivity(), INavigationCallback {
         navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         navView.setupWithNavController(navController)
-    }
-
-    override fun navigateToHardWayStubFragment() {
-        navController.navigate(R.id.actionNavigateToHardWayStubFragment)
-    }
-
-    override fun navigateToDaysOffStubFragment() {
-        navController.navigate(R.id.actionNavigateToDaysOffStubFragment)
-    }
-
-    override fun navigateToFireTicketsStubFragment() {
-        navController.navigate(R.id.actionNavigateToFireTicketsStubFragment)
-    }
-
-    override fun navigateToSearchResultsFragment(bundle: Bundle) {
-        navController.navigate(R.id.actionNavigateToSearchResultsFragment, bundle)
-    }
-
-    override fun navigateToAllTicketsFragment(bundle: Bundle) {
-        navController.navigate(R.id.actionNavigateToAllTicketsFragment, bundle)
-    }
-
-    override fun goBack() {
-        navController.popBackStack()
     }
 }

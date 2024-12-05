@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/searchResultsFragment"
+    android:id="@+id/tickets_search_result_navigation">
+
+    <include app:graph="@navigation/all_tickets_navigation"/>
+
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="io.wookoo.flyticketssearch.search.results.screen.SearchResultFragment"
+        android:label="@string/ticket_search"
+        tools:layout="@layout/fragment_search_result" >
+
+        <action
+            android:id="@+id/actionNavigateToAllTicketsNavigation"
+            app:destination="@id/all_tickets_navigation" />
+
+        <argument
+            android:name="searchQueryFrom"
+            app:argType="string" />
+        <argument
+            android:name="searchQueryWhere"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

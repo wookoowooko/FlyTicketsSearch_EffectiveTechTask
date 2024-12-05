@@ -3,82 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_fly">
+    app:startDestination="@+id/home_navigation">
 
-    <fragment
-        android:id="@+id/navigation_fly"
-        android:name="io.wookoo.flyticketssearch.tickets.screen.TicketsFragment"
-        android:label="@string/title_fly"
-        tools:layout="@layout/fragment_tickets">
-        <action
-            android:id="@+id/actionNavigateToHardWayStubFragment"
-            app:destination="@id/hardWayStubFragment" />
-        <action
-            android:id="@+id/actionNavigateToDaysOffStubFragment"
-            app:destination="@id/daysOffStubFragment" />
-        <action
-            android:id="@+id/actionNavigateToFireTicketsStubFragment"
-            app:destination="@id/fireTicketsStubFragment" />
 
-        <action
-            android:id="@+id/actionNavigateToSearchResultsFragment"
-            app:destination="@id/searchResultsFragment" />
+    <include app:graph="@navigation/home_navigation" />
 
-    </fragment>
-
-    <fragment
-        android:id="@+id/allTicketsFragment"
-        android:name="io.wookoo.flyticketssearch.all.tickets.screen.AllTicketsFragment"
-        android:label="@string/all_tickets"
-        tools:layout="@layout/fragment_all_tickets">
-
-        <argument
-            android:name="from"
-            app:argType="string" />
-        <argument
-            android:name="where"
-            app:argType="string"/>
-        <argument
-            android:name="dateOutbound"
-            app:argType="string"/>
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/hardWayStubFragment"
-        android:name="io.wookoo.flyticketssearch.stubs.HardWayStubFragment"
-        android:label="Hard Way Stub"
-        tools:layout="@layout/fragment_hard_way_stub" />
-
-    <fragment
-        android:id="@+id/daysOffStubFragment"
-        android:name="io.wookoo.flyticketssearch.stubs.DaysOffStubFragment"
-        android:label="Hard Way Stub"
-        tools:layout="@layout/fragment_hard_way_stub" />
-
-    <fragment
-        android:id="@+id/fireTicketsStubFragment"
-        android:name="io.wookoo.flyticketssearch.stubs.FireTicketsStubFragment"
-        android:label="Hard Way Stub"
-        tools:layout="@layout/fragment_hard_way_stub" />
-
-    <fragment
-        android:id="@+id/searchResultsFragment"
-        android:name="io.wookoo.flyticketssearch.search.results.screen.SearchResultFragment"
-        android:label="@string/ticket_search"
-        tools:layout="@layout/fragment_search_result" >
-
-        <action
-            android:id="@+id/actionNavigateToAllTicketsFragment"
-            app:destination="@id/allTicketsFragment" />
-
-        <argument
-            android:name="searchQueryFrom"
-            app:argType="string" />
-        <argument
-            android:name="searchQueryWhere"
-            app:argType="string" />
-    </fragment>
 
     <fragment
         android:id="@+id/navigation_hotels"

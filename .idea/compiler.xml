@@ -4,6 +4,10 @@
     <bytecodeTargetLevel target="11">
       <module name="FlyTicketsSearch.core.network.test" target="21" />
       <module name="FlyTicketsSearch.core.network2" target="21" />
+      <module name="FlyTicketsSearch.features.all-tickets" target="21" />
+      <module name="FlyTicketsSearch.features.home" target="21" />
+      <module name="FlyTicketsSearch.features.tickets-choose" target="21" />
+      <module name="FlyTicketsSearch.features.tickets-container" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

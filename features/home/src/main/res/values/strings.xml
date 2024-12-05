@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_fly">Авиабилеты</string>
+    <string name="ticket_fragment_title">Поиск дешевых авиабилетов</string>
+    <string name="hard_way">Сложный маршрут</string>
+    <string name="everywhere">Куда угодно</string>
+    <string name="days_off">Выходные</string>
+    <string name="fire_tickets">Горячие билеты</string>
+    <string name="sochi_text">Сочи</string>
+    <string name="popular">Популярное направление</string>
+    <string name="phuket">Пхукет</string>
+    <string name="stambul">Стамбул</string>
+</resources>
