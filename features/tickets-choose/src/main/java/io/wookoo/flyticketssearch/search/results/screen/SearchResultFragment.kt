@@ -115,7 +115,7 @@ class SearchResultFragment : Fragment() {
                 showDatePickerDialog(Position.RETURN)
             }
             ticketOfferRecycler.adapter = ticketsOffersAdapter
-            showAllTickets.setOnClickListener{
+            showAllTickets.setOnClickListener {
                 navigationCallback.navigateToAllTicketsFragment()
             }
         }

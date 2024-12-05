@@ -13,7 +13,6 @@ import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 private const val ARG_FROM = "from"
 private const val ARG_WHERE = "where"
 private const val ARG_DATE_OUTBOUND = "dateOutbound"
@@ -41,7 +40,6 @@ class AllTicketsFragment : Fragment() {
     private val allTicketsViewModel: AllTicketsViewModel by viewModel()
     private val ticketsAdapter = TicketsAdapter(itemClickedListener = {})
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -53,7 +51,8 @@ class AllTicketsFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAllTicketsBinding.inflate(inflater, container, false)
@@ -67,9 +66,11 @@ class AllTicketsFragment : Fragment() {
 
         binding.apply {
             ticketsRecycler.adapter = ticketsAdapter
+            backButton.setOnClickListener {
+                navigationCallback.goBack()
+            }
         }
 
         return root
     }
-
 }

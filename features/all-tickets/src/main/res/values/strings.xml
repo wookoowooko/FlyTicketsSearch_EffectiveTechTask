@@ -3,4 +3,5 @@
 
     <string name="graphics_titile">График цен</string>
     <string name="filters_title">Фильтр</string>
+    <string name="transfer">/ Без пересадок</string>
 </resources>

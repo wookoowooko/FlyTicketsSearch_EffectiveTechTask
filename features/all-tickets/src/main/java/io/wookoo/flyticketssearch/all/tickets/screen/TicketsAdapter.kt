@@ -1,5 +1,6 @@
 package io.wookoo.flyticketssearch.all.tickets.screen
 
+import android.view.View
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
@@ -42,7 +43,17 @@ class TicketsAdapter(
 
             bind {
                 binding.apply {
-                    badgeText.text = item.badge
+                    if (item.badge.isNullOrEmpty()) {
+                        badge.visibility = View.GONE
+                    } else {
+                        badge.visibility = View.VISIBLE
+                        badgeText.text = item.badge
+                    }
+                    if (item.hasTransfer) {
+                        hasTransfer.visibility = View.VISIBLE
+                    } else {
+                        hasTransfer.visibility = View.GONE
+                    }
                     price.text = item.price
                     airportArrival.text = item.arrivalAirport
                     airportDeparture.text = item.departureAirport
