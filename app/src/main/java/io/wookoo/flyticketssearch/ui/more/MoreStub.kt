@@ -17,7 +17,6 @@ class MoreStub : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentMoreBinding.inflate(inflater, container, false)
         val root: View = binding?.root ?: error("Binding is null")
         return root
