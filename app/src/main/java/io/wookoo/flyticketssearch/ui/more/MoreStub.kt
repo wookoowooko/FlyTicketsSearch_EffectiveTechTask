@@ -1,17 +1,16 @@
-package io.wookoo.flyticketssearch.ui.notifications
+package io.wookoo.flyticketssearch.ui.more
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import io.wookoo.flyticketssearch.databinding.FragmentMoreBinding
 import io.wookoo.flyticketssearch.databinding.FragmentNotificationsBinding
 
-class NotificationsFragment : Fragment() {
+class MoreStub : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentMoreBinding? = null
     private val binding get() = _binding
 
     override fun onCreateView(
@@ -19,16 +18,9 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this)[NotificationsViewModel::class.java]
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentMoreBinding.inflate(inflater, container, false)
         val root: View = binding?.root ?: error("Binding is null")
-
-        val textView: TextView? = binding?.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView?.text = it
-        }
         return root
     }
 

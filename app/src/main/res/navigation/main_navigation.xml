@@ -82,13 +82,25 @@
 
     <fragment
         android:id="@+id/navigation_hotels"
-        android:name="io.wookoo.flyticketssearch.ui.dashboard.DashboardFragment"
+        android:name="io.wookoo.flyticketssearch.ui.hotels.HotelsStub"
         android:label="@string/title_hotels"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_hotels" />
 
     <fragment
-        android:id="@+id/navigation_short"
-        android:name="io.wookoo.flyticketssearch.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_notifications"
+        android:name="io.wookoo.flyticketssearch.ui.notifications.NotificationStub"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="io.wookoo.flyticketssearch.ui.profile.ProfileStub"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_more"
+        android:name="io.wookoo.flyticketssearch.ui.more.MoreStub"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_more" />
 </navigation>

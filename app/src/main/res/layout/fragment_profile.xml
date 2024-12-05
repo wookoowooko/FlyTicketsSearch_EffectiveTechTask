@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="@string/notificationstubfragment"
-        android:id="@+id/text_notifications"
+        android:text="@string/fragmentstubprofile"
+        android:id="@+id/text_hotels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

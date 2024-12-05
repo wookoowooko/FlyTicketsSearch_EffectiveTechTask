@@ -7,4 +7,8 @@
     <string name="title_profile">Профиль</string>
     <string name="ticket_search">Ticket Search</string>
     <string name="all_tickets">All_Tickets</string>
+    <string name="hotelsstubfragment">HotelsStubFragment</string>
+    <string name="notificationstubfragment">NotificationStubFragment</string>
+    <string name="morestubfragment">MoreStubFragment</string>
+    <string name="fragmentstubprofile">StubProfileFragment</string>
 </resources>
