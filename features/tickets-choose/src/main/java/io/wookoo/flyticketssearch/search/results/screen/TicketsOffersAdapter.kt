@@ -3,7 +3,6 @@ package io.wookoo.flyticketssearch.search.results.screen
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
-import io.wookoo.flyticketssearch.search.results.R
 import io.wookoo.flyticketssearch.search.results.databinding.TicketOfferItemBinding
 import io.wookoo.flyticketssearch.search.results.ui.UiTicketOffer
 
@@ -16,7 +15,6 @@ private val diffCallback = object : DiffUtil.ItemCallback<UiTicketOffer>() {
         return oldItem == newItem
     }
 }
-
 
 class TicketsOffersAdapter(
     itemClickedListener: (UiTicketOffer) -> Unit

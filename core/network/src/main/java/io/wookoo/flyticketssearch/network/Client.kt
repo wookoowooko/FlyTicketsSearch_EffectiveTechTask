@@ -33,6 +33,6 @@ class Client(private val context: Context) {
         apiEnableMock = true, // enable or disable mock when there are includes and excludes configs
         apiIncludeIntoMock = arrayOf(), // include endpoint if `apiEnableMock` is false
         apiExcludeFromMock = arrayOf(), // exclude endpoint if `apiEnableMock` is true
-        apiResponseLatency = 500L // latency of retrieving data
+        apiResponseLatency = 100L // latency of retrieving data
     )
 }

@@ -1,60 +1,82 @@
 package io.wookoo.flyticketssearch.all.tickets.screen
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import io.wookoo.flyticketssearch.all.tickets.R
+import androidx.lifecycle.lifecycleScope
+import io.wookoo.flyticketssearch.all.tickets.databinding.FragmentAllTicketsBinding
+import io.wookoo.flyticketssearch.all.tickets.viewmodel.AllTicketsViewModel
+import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AllTicketsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_FROM = "from"
+private const val ARG_WHERE = "where"
+private const val ARG_DATE_OUTBOUND = "dateOutbound"
 
 class AllTicketsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var navigationCallback: INavigationCallback
+
+    private var paramFrom: String? = null
+    private var paramWhere: String? = null
+    private var paramDateOutbound: String? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is INavigationCallback) {
+            navigationCallback = context
+        }
+    }
+
+    private var _binding: FragmentAllTicketsBinding? = null
+    private val binding get() = checkNotNull(_binding)
+
+    private val allTicketsViewModel: AllTicketsViewModel by viewModel()
+    private val ticketsAdapter = TicketsAdapter(itemClickedListener = {})
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            paramFrom = it.getString(ARG_FROM)
+            paramWhere = it.getString(ARG_WHERE)
+            paramDateOutbound = it.getString(ARG_DATE_OUTBOUND) ?: SimpleDateFormat(
+                "d MMMM",
+                Locale.getDefault()
+            ).format(Date())
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_tickets, container, false)
-    }
+    ): View {
+        _binding = FragmentAllTicketsBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AllTicketsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AllTicketsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        lifecycleScope.launch {
+            allTicketsViewModel.uiTickets.collect { uiTicketsOffers ->
+                ticketsAdapter.items = uiTicketsOffers
             }
+        }
+
+        binding.apply {
+            ticketsRecycler.adapter = ticketsAdapter
+            backButton.setOnClickListener {
+                navigationCallback.goBack()
+            }
+            fromText.text = paramFrom
+            whereText.text = paramWhere
+            dateDeparture.text = paramDateOutbound
+        }
+
+        return root
     }
 }
