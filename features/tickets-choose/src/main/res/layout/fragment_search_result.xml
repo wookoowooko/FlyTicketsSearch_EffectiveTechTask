@@ -258,75 +258,14 @@
                         android:textFontWeight="600"
                         android:textSize="20sp" />
 
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="@dimen/tickets_16dp"
-                            android:layout_marginTop="@dimen/tickets_8dp"
-                            android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:contentDescription="@null"
-                                android:src="@drawable/special_orange_placeholder" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/tickets_8dp"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:fontFamily="@font/light_italic"
-                                        android:gravity="start"
-                                        android:lineHeight="16.8dp"
-                                        android:text="Уральские авиалинии"
-                                        android:textColor="@color/white"
-                                        android:textSize="14sp" />
-
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:drawableEnd="@drawable/arr"
-                                        android:fontFamily="@font/bold_italic"
-                                        android:gravity="end"
-                                        android:lineHeight="16.8dp"
-                                        android:text="2 390 ₽"
-                                        android:textColor="@color/special_blue"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="4dp"
-                                    android:layout_marginEnd="@dimen/tickets_8dp"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/regular"
-                                    android:lineHeight="16.8dp"
-                                    android:maxLines="1"
-                                    android:text="07:00  09:10   10:00  11:00  12:00  13:00  12:00   12:00 12:00 12:00 12:00   "
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp" />
-                            </LinearLayout>
-
-                        </LinearLayout>
 
                         <com.google.android.material.divider.MaterialDivider
                             android:layout_width="match_parent"
@@ -336,161 +275,14 @@
                             app:dividerColor="@color/grey_four" />
                     </LinearLayout>
 
-                    <LinearLayout
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ticket_offer_recycler"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_height="wrap_content">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="@dimen/tickets_16dp"
-                            android:layout_marginTop="@dimen/tickets_8dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:contentDescription="@null"
-                                android:src="@drawable/special_blue_placeholder" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/tickets_8dp"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:fontFamily="@font/light_italic"
-                                        android:gravity="start"
-                                        android:lineHeight="16.8dp"
-                                        android:text="Победа"
-                                        android:textColor="@color/white"
-                                        android:textSize="14sp" />
-
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:fontFamily="@font/bold_italic"
-                                        android:gravity="end"
-                                        android:lineHeight="16.8dp"
-                                        android:text="2 390 ₽"
-                                        android:textColor="@color/special_blue"
-                                        android:textSize="14sp"
-                                        app:drawableEndCompat="@drawable/arr" />
-                                </LinearLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="4dp"
-                                    android:layout_marginEnd="@dimen/tickets_8dp"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/regular"
-                                    android:lineHeight="16.8dp"
-                                    android:maxLines="1"
-                                    android:text="08:05  09:55  16:35  18:55"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <com.google.android.material.divider.MaterialDivider
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginHorizontal="@dimen/tickets_16dp"
-                            android:layout_marginTop="@dimen/tickets_10dp"
-                            app:dividerColor="@color/grey_four" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="@dimen/tickets_16dp"
-                            android:layout_marginTop="@dimen/tickets_8dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:contentDescription="@null"
-                                android:src="@drawable/special_white_placeholder" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/tickets_8dp"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal">
-
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:fontFamily="@font/light_italic"
-                                        android:gravity="start"
-                                        android:lineHeight="16.8dp"
-                                        android:text="NordStar"
-                                        android:textColor="@color/white"
-                                        android:textSize="14sp" />
-
-                                    <TextView
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:drawableEnd="@drawable/arr"
-                                        android:fontFamily="@font/bold_italic"
-                                        android:gravity="end"
-                                        android:lineHeight="16.8dp"
-                                        android:text="2 390 ₽"
-                                        android:textColor="@color/special_blue"
-                                        android:textSize="14sp" />
-                                </LinearLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="4dp"
-                                    android:layout_marginEnd="@dimen/tickets_8dp"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/regular"
-                                    android:lineHeight="16.8dp"
-                                    android:maxLines="1"
-                                    android:text="13:10"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <com.google.android.material.divider.MaterialDivider
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginHorizontal="@dimen/tickets_16dp"
-                            android:layout_marginTop="@dimen/tickets_10dp"
-                            app:dividerColor="@color/grey_four" />
-                    </LinearLayout>
+                    </androidx.recyclerview.widget.RecyclerView>
 
                     <TextView
                         android:layout_width="match_parent"

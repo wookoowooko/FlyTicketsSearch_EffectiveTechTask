@@ -32,6 +32,7 @@ class SearchResultFragment : Fragment() {
     private val binding get() = checkNotNull(_binding)
 
     private val searchResultViewModel: SearchResultViewModel by viewModel()
+    private val ticketsOffersAdapter = TicketsOffersAdapter(itemClickedListener = {})
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -89,6 +90,11 @@ class SearchResultFragment : Fragment() {
                 }
             }
         }
+        lifecycleScope.launch {
+            searchResultViewModel.uiTicketsOffers.collect { uiTicketsOffers ->
+                ticketsOffersAdapter.items = uiTicketsOffers
+            }
+        }
 
         binding.apply {
             changeTextViews.setOnClickListener {
@@ -108,6 +114,7 @@ class SearchResultFragment : Fragment() {
             cardBackDate.setOnClickListener {
                 showDatePickerDialog(Position.RETURN)
             }
+            ticketOfferRecycler.adapter = ticketsOffersAdapter
         }
 
         return root
