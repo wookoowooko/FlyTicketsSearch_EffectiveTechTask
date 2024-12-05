@@ -19,7 +19,7 @@ class FormatListUseCaseTest {
 
         val list = listOf("07:10", "07:22", "10:30")
         val expectedResult = "07:10 07:22 10:30"
-        val result = formatListUseCase.execute(list)
+        val result = formatListUseCase(list)
 
         assertEquals(expectedResult, result)
     }

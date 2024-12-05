@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/allTicketsFragment"
         android:name="io.wookoo.flyticketssearch.all.tickets.screen.AllTicketsFragment"
-        android:label="Hard Way Stub"
+        android:label="@string/all_tickets"
         tools:layout="@layout/fragment_all_tickets" >
 
     </fragment>

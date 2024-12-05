@@ -1,6 +1,7 @@
 package io.wookoo.flyticketssearch
 
 import android.app.Application
+import io.wookoo.flyticketssearch.all.tickets.di.allTicketsModule
 import io.wookoo.flyticketssearch.data.di.dataModule
 import io.wookoo.flyticketssearch.search.results.di.searchResultModule
 import io.wookoo.flyticketssearch.tickets.di.ticketsModule
@@ -16,7 +17,7 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
             androidLogger(Level.DEBUG)
-            modules(dataModule + ticketsModule + searchResultModule)
+            modules(dataModule + ticketsModule + searchResultModule + allTicketsModule)
         }
     }
 }

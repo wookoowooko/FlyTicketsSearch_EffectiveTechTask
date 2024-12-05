@@ -6,4 +6,5 @@
     <string name="title_notifications">Подписки</string>
     <string name="title_profile">Профиль</string>
     <string name="ticket_search">Ticket Search</string>
+    <string name="all_tickets">All_Tickets</string>
 </resources>
