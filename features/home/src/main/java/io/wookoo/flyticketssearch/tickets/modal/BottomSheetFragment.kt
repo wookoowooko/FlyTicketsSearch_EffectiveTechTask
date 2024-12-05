@@ -1,6 +1,7 @@
 package io.wookoo.flyticketssearch.tickets.modal
 
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,6 @@ import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import io.wookoo.flyticketssearch.tickets.R
 import io.wookoo.flyticketssearch.tickets.databinding.FragmentBottomSheetBinding
 import io.wookoo.flyticketssearch.tickets.ui.UiDepartures
-import io.wookoo.flyticketssearch.tickets.ui.inputFilter
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -90,6 +90,11 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 findNavController().navigate(R.id.actionNavigateToFireTicketsStubFragment)
             }
 
+            val inputFilter = InputFilter { source, _, _, _, _, _ ->
+                val filtered = source.filter { it in 'А'..'я' || it == ' ' }
+                // Если были подходящие символы, возвращаем их, иначе пустую строку
+                return@InputFilter filtered.ifEmpty { "" }
+            }
             editTextFromModal.filters = arrayOf(inputFilter)
             editTextWhereModal.filters = arrayOf(inputFilter)
 

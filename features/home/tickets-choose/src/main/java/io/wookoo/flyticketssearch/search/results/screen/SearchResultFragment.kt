@@ -2,6 +2,7 @@ package io.wookoo.flyticketssearch.search.results.screen
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -128,6 +129,14 @@ class SearchResultFragment : Fragment() {
                     }
                 )
             }
+
+            val inputFilter = InputFilter { source, _, _, _, _, _ ->
+                val filtered = source.filter { it in 'А'..'я' || it == ' ' }
+                // Если были подходящие символы, возвращаем их, иначе пустую строку
+                return@InputFilter filtered.ifEmpty { "" }
+            }
+            editTextFromSearch.filters = arrayOf(inputFilter)
+            editTextWhereSearch.filters = arrayOf(inputFilter)
         }
 
         return root
