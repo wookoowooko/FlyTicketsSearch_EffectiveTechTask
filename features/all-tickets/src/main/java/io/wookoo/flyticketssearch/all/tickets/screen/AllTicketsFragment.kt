@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import io.wookoo.flyticketssearch.all.tickets.databinding.FragmentAllTicketsBinding
 import io.wookoo.flyticketssearch.all.tickets.viewmodel.AllTicketsViewModel
 import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
+import io.wookoo.flyticketssearch.logger.MyLogger.logger
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -50,6 +51,8 @@ class AllTicketsFragment : Fragment() {
                 "d MMMM",
                 Locale.getDefault()
             ).format(Date())
+
+            logger.info("alltickets", "$paramFrom $paramWhere $paramDateOutbound")
         }
     }
 

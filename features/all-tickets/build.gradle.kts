@@ -42,7 +42,7 @@ dependencies {
         implementation(core.data)
         implementation(core.domain)
         implementation(uiCatalog)
-        debugImplementation(logger)
+        implementation(logger)
     }
 
     libs.apply {
