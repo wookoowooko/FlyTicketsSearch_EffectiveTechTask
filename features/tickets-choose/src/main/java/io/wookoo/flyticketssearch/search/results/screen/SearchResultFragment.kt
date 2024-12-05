@@ -15,7 +15,13 @@ import io.wookoo.flyticketssearch.search.results.databinding.FragmentSearchResul
 import io.wookoo.flyticketssearch.search.results.viewnodel.SearchResultViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
+
+private const val ARG_FROM = "from"
+private const val ARG_WHERE = "where"
+private const val ARG_DATE_OUTBOUND = "dateOutbound"
 
 class SearchResultFragment : Fragment() {
 
@@ -33,6 +39,8 @@ class SearchResultFragment : Fragment() {
 
     private val searchResultViewModel: SearchResultViewModel by viewModel()
     private val ticketsOffersAdapter = TicketsOffersAdapter(itemClickedListener = {})
+
+    private var dateDepartureOutboundArgs: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,6 +73,7 @@ class SearchResultFragment : Fragment() {
                 binding.dateDeparture.text = dateDepartureOutbound
             }
         }
+
         lifecycleScope.launch {
             searchResultViewModel.dateReturn.collect { dateReturn ->
                 if (dateReturn.isNotEmpty()) {
@@ -116,7 +125,13 @@ class SearchResultFragment : Fragment() {
             }
             ticketOfferRecycler.adapter = ticketsOffersAdapter
             showAllTickets.setOnClickListener {
-                navigationCallback.navigateToAllTicketsFragment()
+                navigationCallback.navigateToAllTicketsFragment(
+                    Bundle().apply {
+                        putString(ARG_FROM, searchQueryFrom)
+                        putString(ARG_WHERE, searchQueryWhere)
+                        putString(ARG_DATE_OUTBOUND, dateDepartureOutboundArgs)
+                    }
+                )
             }
         }
 
@@ -129,6 +144,8 @@ class SearchResultFragment : Fragment() {
             { _, year, month, dayOfMonth ->
                 val calendar = Calendar.getInstance()
                 calendar.set(year, month, dayOfMonth)
+                dateDepartureOutboundArgs =
+                    SimpleDateFormat("d MMMM", Locale.getDefault()).format(calendar.time)
                 when (position) {
                     Position.OUTBOUND -> {
                         searchResultViewModel.formatDateOutbound(calendar.time)

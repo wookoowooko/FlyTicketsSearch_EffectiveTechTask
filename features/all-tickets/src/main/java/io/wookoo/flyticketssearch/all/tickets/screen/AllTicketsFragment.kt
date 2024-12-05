@@ -12,11 +12,13 @@ import io.wookoo.flyticketssearch.all.tickets.viewmodel.AllTicketsViewModel
 import io.wookoo.flyticketssearch.data.navigation.INavigationCallback
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 private const val ARG_FROM = "from"
 private const val ARG_WHERE = "where"
 private const val ARG_DATE_OUTBOUND = "dateOutbound"
-private const val ARG_DATE_RETURN = "dateReturn"
 
 class AllTicketsFragment : Fragment() {
 
@@ -25,7 +27,6 @@ class AllTicketsFragment : Fragment() {
     private var paramFrom: String? = null
     private var paramWhere: String? = null
     private var paramDateOutbound: String? = null
-    private var paramDateReturn: String? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -45,8 +46,10 @@ class AllTicketsFragment : Fragment() {
         arguments?.let {
             paramFrom = it.getString(ARG_FROM)
             paramWhere = it.getString(ARG_WHERE)
-            paramDateOutbound = it.getString(ARG_DATE_OUTBOUND)
-            paramDateReturn = it.getString(ARG_DATE_RETURN)
+            paramDateOutbound = it.getString(ARG_DATE_OUTBOUND) ?: SimpleDateFormat(
+                "d MMMM",
+                Locale.getDefault()
+            ).format(Date())
         }
     }
 
@@ -69,6 +72,9 @@ class AllTicketsFragment : Fragment() {
             backButton.setOnClickListener {
                 navigationCallback.goBack()
             }
+            fromText.text = paramFrom
+            whereText.text = paramWhere
+            dateDeparture.text = paramDateOutbound
         }
 
         return root

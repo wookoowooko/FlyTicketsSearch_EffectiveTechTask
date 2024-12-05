@@ -28,26 +28,69 @@
             android:layout_marginStart="@dimen/tickets_16dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/fromText"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bold"
-                android:lineHeight="19.5dp"
-                android:text="Москва-Сочи"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/fromText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:lineHeight="19.5dp"
+                    android:text="Москва"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/toText"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:lineHeight="19.5dp"
+                    android:text=" - "
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/whereText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
+                    android:lineHeight="19.5dp"
+                    android:text="Сочи"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/regular"
-                android:text="23 февраля, 1 пассажир"
-                android:textColor="@color/grey_six"
-                android:textFontWeight="500"
-                android:textSize="14sp" />
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/dateDeparture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/regular"
+                    android:text="23 февраля"
+                    android:textColor="@color/grey_six"
+                    android:textFontWeight="500"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/regular"
+                    android:text=", 1 пассажир"
+                    android:textColor="@color/grey_six"
+                    android:textFontWeight="500"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </LinearLayout>
 

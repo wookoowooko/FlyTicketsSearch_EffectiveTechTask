@@ -30,7 +30,17 @@
         android:id="@+id/allTicketsFragment"
         android:name="io.wookoo.flyticketssearch.all.tickets.screen.AllTicketsFragment"
         android:label="@string/all_tickets"
-        tools:layout="@layout/fragment_all_tickets" >
+        tools:layout="@layout/fragment_all_tickets">
+
+        <argument
+            android:name="from"
+            app:argType="string" />
+        <argument
+            android:name="where"
+            app:argType="string"/>
+        <argument
+            android:name="dateOutbound"
+            app:argType="string"/>
 
     </fragment>
 

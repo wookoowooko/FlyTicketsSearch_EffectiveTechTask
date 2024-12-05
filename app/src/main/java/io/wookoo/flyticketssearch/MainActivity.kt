@@ -54,8 +54,8 @@ class MainActivity : AppCompatActivity(), INavigationCallback {
         navController.navigate(R.id.actionNavigateToSearchResultsFragment, bundle)
     }
 
-    override fun navigateToAllTicketsFragment() {
-        navController.navigate(R.id.actionNavigateToAllTicketsFragment)
+    override fun navigateToAllTicketsFragment(bundle: Bundle) {
+        navController.navigate(R.id.actionNavigateToAllTicketsFragment, bundle)
     }
 
     override fun goBack() {
