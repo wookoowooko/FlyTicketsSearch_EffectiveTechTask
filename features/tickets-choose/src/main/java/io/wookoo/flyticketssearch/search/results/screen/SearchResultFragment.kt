@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 private const val ARG_FROM = "from"
@@ -40,7 +41,10 @@ class SearchResultFragment : Fragment() {
     private val searchResultViewModel: SearchResultViewModel by viewModel()
     private val ticketsOffersAdapter = TicketsOffersAdapter(itemClickedListener = {})
 
-    private var dateDepartureOutboundArgs: String? = null
+    private var dateDepartureOutboundArgs: String = SimpleDateFormat(
+        "d MMMM",
+        Locale.getDefault()
+    ).format(Date())
 
     override fun onCreateView(
         inflater: LayoutInflater,

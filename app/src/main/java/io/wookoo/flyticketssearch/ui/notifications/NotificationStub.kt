@@ -17,7 +17,6 @@ class NotificationStub : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding?.root ?: error("Binding is null")
         return root

@@ -17,8 +17,6 @@ class HotelsStub : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         _binding = FragmentHotelsBinding.inflate(inflater, container, false)
         val root: View = binding?.root ?: error("Binding is null")
 
