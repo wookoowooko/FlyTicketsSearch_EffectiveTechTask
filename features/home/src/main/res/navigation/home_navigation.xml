@@ -13,16 +13,32 @@
         android:label="@string/title_fly"
         tools:layout="@layout/fragment_home">
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/actionNavigateToHardWayStubFragment"
             app:destination="@id/hardWayStubFragment" />
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/actionNavigateToDaysOffStubFragment"
             app:destination="@id/daysOffStubFragment" />
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/actionNavigateToFireTicketsStubFragment"
             app:destination="@id/fireTicketsStubFragment" />
 
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/actionToTicketsSearchResultNavigation"
             app:destination="@id/tickets_search_result_navigation" />
 
