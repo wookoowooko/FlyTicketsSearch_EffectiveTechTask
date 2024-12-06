@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
@@ -26,6 +27,13 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private val bottomSheetViewModel by viewModel<ModalBottomSheetViewModel>()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val modalBottomSheet = this
+        val modalBottomSheetBehavior = (modalBottomSheet.dialog as BottomSheetDialog).behavior
+        modalBottomSheetBehavior.saveFlags = BottomSheetBehavior.SAVE_ALL
+        modalBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +47,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 "from" -> editTextFromModal.requestFocus()
                 "where" -> editTextWhereModal.requestFocus()
             }
-
 
             lifecycleScope.launch {
                 bottomSheetViewModel.fromEditText.collect { lastEditedValue ->
