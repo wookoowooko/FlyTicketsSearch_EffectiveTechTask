@@ -21,8 +21,25 @@ dependencies {
 gradlePlugin {
     plugins {
         register("kotlinDetekt") {
-            id = "fly.tikets.detekt"
+            id = "fly.tickets.detekt"
             implementationClass = "io.wookoo.flyticketssearch.convention.DetektConventionPlugin"
+        }
+        register("androidApplication") {
+            id = "fly.tickets.android.application"
+            implementationClass = "io.wookoo.flyticketssearch.convention.AndroidApplicationConventionPlugin"
+        }
+
+        register("androidLibrary"){
+            id = "fly.tickets.android.library"
+            implementationClass = "io.wookoo.flyticketssearch.convention.AndroidLibraryConventionPlugin"
+        }
+        register("jvmLibrary"){
+            id = "fly.tickets.jvm.library"
+            implementationClass = "io.wookoo.flyticketssearch.convention.JvmLibraryConventionPlugin"
+        }
+        register("feature"){
+            id = "fly.tickets.feature"
+            implementationClass = "io.wookoo.flyticketssearch.convention.FeatureConventionPlugin"
         }
     }
 }
