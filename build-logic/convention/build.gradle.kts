@@ -37,5 +37,9 @@ gradlePlugin {
             id = "fly.tickets.jvm.library"
             implementationClass = "io.wookoo.flyticketssearch.convention.JvmLibraryConventionPlugin"
         }
+        register("feature"){
+            id = "fly.tickets.feature"
+            implementationClass = "io.wookoo.flyticketssearch.convention.FeatureConventionPlugin"
+        }
     }
 }

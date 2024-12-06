@@ -69,7 +69,7 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 
-adapter-dalegates = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapter-delegates" }
+adapter-delegates = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapter-delegates" }
 androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 
 
@@ -89,6 +89,7 @@ fly-tickets-detekt = { id = "fly.tickets.detekt", version = "unspecified" }
 fly-tickets-android-application = { id = "fly.tickets.android.application", version = "unspecified" }
 fly-tickets-android-library = { id = "fly.tickets.android.library", version = "unspecified" }
 fly-tickets-jvm-library = { id = "fly.tickets.jvm.library", version = "unspecified" }
+fly-tickets-feature = { id = "fly.tickets.feature", version = "unspecified"}
 
 
 [bundles]
@@ -107,5 +108,11 @@ network = [
     "okhttp-logging-interceptor",
     "mock-fit"
 ]
+
+android-testing = [
+    "androidx-junit",
+    "androidx-espresso-core"
+]
+
 
 

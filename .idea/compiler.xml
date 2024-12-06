@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11">
+    <bytecodeTargetLevel target="21">
       <module name="FlyTicketsSearch.core.network.test" target="21" />
       <module name="FlyTicketsSearch.core.network2" target="21" />
       <module name="FlyTicketsSearch.features.all-tickets" target="21" />
