@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   quality-checks:
-    environment: production
+    environment: development
     name: Code Quality and Unit Tests
     runs-on: ubuntu-latest  # Операционная система для выполнения задания
     timeout-minutes: 60  # Устанавливаем таймаут для выполнения всех шагов
