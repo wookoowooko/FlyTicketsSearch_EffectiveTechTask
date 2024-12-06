@@ -88,6 +88,7 @@ fly-tickets-detekt = { id = "fly.tickets.detekt", version = "unspecified" }
 
 fly-tickets-android-application = { id = "fly.tickets.android.application", version = "unspecified" }
 fly-tickets-android-library = { id = "fly.tickets.android.library", version = "unspecified" }
+fly-tickets-jvm-library = { id = "fly.tickets.jvm.library", version = "unspecified" }
 
 
 [bundles]
