@@ -1,0 +1,43 @@
+name: Code Quality Check
+
+on:
+  push:
+    branches:
+      - master  # Запускаем при пуше в ветку master
+  pull_request:  # Запускаем для pull request'ов, направленных в ветку master
+
+concurrency:
+  group: build-${{ github.ref }}  # Группа для управления параллельными запусками
+  cancel-in-progress: true  # Отменяем предыдущие запуски для этой группы
+
+jobs:
+  quality-checks:
+    environment: production
+    name: Code Quality and Unit Tests
+    runs-on: ubuntu-latest  # Операционная система для выполнения задания
+    timeout-minutes: 60  # Устанавливаем таймаут для выполнения всех шагов
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4  # Шаг для получения кода из репозитория
+
+      - name: Setup Java
+        uses: actions/setup-java@v4  # Шаг для настройки JDK
+        with:
+          distribution: 'temurin'  # Указываем дистрибутив Java
+          java-version: 21  # Указываем версию Java
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3  # Шаг для настройки Gradle
+
+      - name: Check Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1  # Проверка корректности Gradle wrapper
+
+
+      - name: Run detektAll
+        id: detektAll
+        run: ./gradlew clean detektAll
+
+      - name: Run Unit Tests
+        if: ${{ steps.detektAll.outcome == 'success' }}
+        run: ./gradlew test  # Запуск юнит-тестов
