@@ -82,10 +82,13 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 kapt = {id ="org.jetbrains.kotlin.kapt",  version.ref= "kapt" }
-
-#own
-fly-tickets-detekt = { id = "fly.tikets.detekt", version = "unspecified" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+#own
+fly-tickets-detekt = { id = "fly.tickets.detekt", version = "unspecified" }
+
+fly-tickets-android-application = { id = "fly.tickets.android.application", version = "unspecified" }
+fly-tickets-android-library = { id = "fly.tickets.android.library", version = "unspecified" }
+
 
 [bundles]
 koin-bundle = [
