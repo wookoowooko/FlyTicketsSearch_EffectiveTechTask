@@ -5,7 +5,7 @@
     android:id="@+id/standard_bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/grey_two"
+    android:orientation="horizontal"
     android:padding="16dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 

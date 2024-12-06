@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import io.wookoo.flyticketssearch.tickets.R
@@ -25,6 +26,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private val bottomSheetViewModel by viewModel<ModalBottomSheetViewModel>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,6 +39,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 "from" -> editTextFromModal.requestFocus()
                 "where" -> editTextWhereModal.requestFocus()
             }
+
 
             lifecycleScope.launch {
                 bottomSheetViewModel.fromEditText.collect { lastEditedValue ->

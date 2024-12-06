@@ -11,7 +11,7 @@
         <item name="colorSecondaryVariant">@color/grey_four</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="colorSurface">@color/blue</item>
+        <item name="colorSurface">@color/black</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
@@ -19,12 +19,19 @@
         <item name="android:windowBackground">?attr/colorPrimary</item>
         <!-- Navigation bar color. -->
         <item name="android:navigationBarColor">?attr/colorPrimary</item>
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
 
+        <!-- Bottom sheet dialog theme. -->
+        <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
     </style>
 
-    <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
-        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+    <style name="ModalBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="android:background" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@color/grey_two</item>
     </style>
+
+    <style name="ModalBottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
+    </style>
+
 
 </resources>
