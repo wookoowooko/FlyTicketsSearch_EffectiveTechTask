@@ -49,14 +49,15 @@ class TicketsFragment : Fragment() {
                 layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             }
 
-            editTextWhere.setOnClickListener { showBottomSheet("where") }
-            editTextFrom.setOnClickListener { showBottomSheet("from") }
+            editTextWhere.setOnClickListener { showBottomSheet(FLAG_WHERE) }
+            editTextFrom.setOnClickListener { showBottomSheet(FLAG_FROM) }
         }
         return root
     }
+
     private fun showBottomSheet(flag: String) {
         BottomSheetFragment().apply {
-            arguments = Bundle().apply { putString("flag", flag) }
+            arguments = Bundle().apply { putString(ARG, flag) }
         }.also {
             it.show(parentFragmentManager, it.tag)
         }
@@ -65,5 +66,11 @@ class TicketsFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        private const val FLAG_WHERE = "where"
+        private const val FLAG_FROM = "from"
+        private const val ARG = "flag"
     }
 }

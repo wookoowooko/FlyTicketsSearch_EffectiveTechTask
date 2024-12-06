@@ -42,10 +42,10 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     ): View {
         _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         binding.apply {
-            val args = arguments?.getString("flag")
+            val args = arguments?.getString(FLAG_KEY)
             when (args) {
-                "from" -> editTextFromModal.requestFocus()
-                "where" -> editTextWhereModal.requestFocus()
+                FROM_KEY -> editTextFromModal.requestFocus()
+                WHERE_KEY -> editTextWhereModal.requestFocus()
             }
 
             lifecycleScope.launch {
@@ -100,13 +100,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 findNavController().navigate(R.id.actionNavigateToFireTicketsStubFragment)
             }
 
-            val inputFilter = InputFilter { source, _, _, _, _, _ ->
-                val filtered = source.filter { it in 'А'..'я' || it == ' ' }
-                // Если были подходящие символы, возвращаем их, иначе пустую строку
-                return@InputFilter filtered.ifEmpty { "" }
-            }
-            editTextFromModal.filters = arrayOf(inputFilter)
-            editTextWhereModal.filters = arrayOf(inputFilter)
+            editTextFromModal.filters = arrayOf(inputFilter())
+            editTextWhereModal.filters = arrayOf(inputFilter())
 
             editTextFromModal.addTextChangedListener { editable ->
                 bottomSheetViewModel.setFromEditText(editable.toString())
@@ -121,8 +116,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                             onDismiss(checkNotNull(dialog))
 
                             val bundle = Bundle().apply {
-                                putString("searchQueryWhere", inputText)
-                                putString("searchQueryFrom", editTextFromModal.text.toString())
+                                putString(SEARCH_QUERY_WHERE, inputText)
+                                putString(SEARCH_QUERY_FROM, editTextFromModal.text.toString())
                             }
                             findNavController().navigate(
                                 R.id.actionToTicketsSearchResultNavigation,
@@ -148,8 +143,24 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         }
     }
 
+    private fun inputFilter(): InputFilter {
+        val inputFilter = InputFilter { source, _, _, _, _, _ ->
+            val filtered = source.filter { it in 'А'..'я' || it == ' ' }
+            return@InputFilter filtered.ifEmpty { "" }
+        }
+        return inputFilter
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        private const val FLAG_KEY = "flag"
+        private const val FROM_KEY = "from"
+        private const val WHERE_KEY = "where"
+        private const val SEARCH_QUERY_FROM = "searchQueryFrom"
+        private const val SEARCH_QUERY_WHERE = "searchQueryWhere"
     }
 }

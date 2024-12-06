@@ -10,5 +10,5 @@ data class HandLuggageDTO(
     val hasHandLuggage: Boolean,
 
     @Json(name = "size")
-    val size: String? = null // Nullable because some tickets might not include a size.
+    val size: String? = null
 )

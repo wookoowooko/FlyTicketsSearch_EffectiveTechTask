@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tickets_8dp"
         android:layout_weight="600"
-        android:text="Die Antwoord"
+        android:text="@string/stub_placeholder_name_artist"
         android:textColor="@color/white"
         android:textSize="@dimen/text_16sp" />
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tickets_8dp"
         android:layout_weight="400"
-        android:text="Будапешт"
+        android:text="@string/stub_town"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
@@ -48,12 +48,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tickets_8dp"
-        android:drawableLeft="@drawable/ic_fly_24"
         android:drawablePadding="8dp"
         android:gravity="center_vertical"
         android:text="от 22 264 ₽"
         android:textColor="@color/white"
         android:textSize="14sp"
+        app:drawableLeftCompat="@drawable/ic_fly_24"
         tools:ignore="HardcodedText" />
 
 

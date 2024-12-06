@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
                     android:lineHeight="19.5dp"
-                    android:text="Москва"
+                    android:text="@string/stub_from"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
                     android:lineHeight="19.5dp"
-                    android:text=" - "
+                    android:text="@string/stub_div"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
                     android:lineHeight="19.5dp"
-                    android:text="Сочи"
+                    android:text="@string/stub_where"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/regular"
-                    android:text="23 февраля"
+                    android:text="@string/stub_date"
                     android:textColor="@color/grey_six"
                     android:textFontWeight="500"
                     android:textSize="14sp" />
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/regular"
-                    android:text=", 1 пассажир"
+                    android:text="@string/stub_passengers"
                     android:textColor="@color/grey_six"
                     android:textFontWeight="500"
                     android:textSize="14sp" />
@@ -147,7 +147,7 @@
                 android:drawablePadding="4dp"
                 android:fontFamily="@font/light_italic"
                 android:lineHeight="16.8dp"
-                android:text="@string/graphics_titile"
+                android:text="@string/graphics_title"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_14sp"
                 app:drawableStartCompat="@drawable/ic_graphic" />

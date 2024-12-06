@@ -1,6 +1,17 @@
 <resources>
     <string name="all_tickets">All_Tickets</string>
-    <string name="graphics_titile">График цен</string>
+    <string name="graphics_title">График цен</string>
     <string name="filters_title">Фильтр</string>
     <string name="transfer">/ Без пересадок</string>
+    <string name="stub_from">Москва</string>
+    <string name="stub_div">-</string>
+    <string name="stub_where">Сочи</string>
+    <string name="stub_date">23 февраля</string>
+    <string name="stub_passengers">, 1 пассажир</string>
+    <string name="stub_price">6 990 ₽</string>
+    <string name="stub_dep_time">17:45</string>
+    <string name="stub_arr_time">21:20</string>
+    <string name="stub_airport_dep">DME</string>
+    <string name="stub_airport_arr">AER</string>
+    <string name="stub_flight_time">3.5ч в пути</string>
 </resources>

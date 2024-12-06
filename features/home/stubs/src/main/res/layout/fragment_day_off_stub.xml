@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="?attr/actionBarSize"
+    android:paddingTop="?attr/actionBarSize"
     tools:context=".HardWayStubFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Выходные"
+            android:text="@string/stub_days_title"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Выходные"
+            android:text="@string/stub_days_title"
             android:gravity="center"
             android:textSize="24sp"
             android:textColor="@android:color/white" />

@@ -301,7 +301,7 @@
                 android:gravity="center"
                 android:lineHeight="20.8dp"
                 android:padding="11dp"
-                android:text="@string/all_tikets_button"
+                android:text="@string/all_tickets_button"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_16sp" />
 

@@ -20,10 +20,6 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-private const val ARG_FROM = "from"
-private const val ARG_WHERE = "where"
-private const val ARG_DATE_OUTBOUND = "dateOutbound"
-
 class SearchResultFragment : Fragment() {
 
     private var _binding: FragmentSearchResultBinding? = null
@@ -33,7 +29,7 @@ class SearchResultFragment : Fragment() {
     private val ticketsOffersAdapter = TicketsOffersAdapter(itemClickedListener = {})
 
     private var dateDepartureOutboundArgs: String = SimpleDateFormat(
-        "d MMMM",
+        PATTERN,
         Locale.getDefault()
     ).format(Date())
 
@@ -45,8 +41,8 @@ class SearchResultFragment : Fragment() {
         _binding = FragmentSearchResultBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val searchQueryFrom = arguments?.getString("searchQueryFrom")
-        val searchQueryWhere = arguments?.getString("searchQueryWhere")
+        val searchQueryFrom = arguments?.getString(SEARCH_QUERY_FROM)
+        val searchQueryWhere = arguments?.getString(SEARCH_QUERY_WHERE)
 
         searchResultViewModel.updateTextFrom(searchQueryFrom.orEmpty())
         searchResultViewModel.updateTextWhere(searchQueryWhere.orEmpty())
@@ -130,16 +126,19 @@ class SearchResultFragment : Fragment() {
                 )
             }
 
-            val inputFilter = InputFilter { source, _, _, _, _, _ ->
-                val filtered = source.filter { it in 'А'..'я' || it == ' ' }
-                // Если были подходящие символы, возвращаем их, иначе пустую строку
-                return@InputFilter filtered.ifEmpty { "" }
-            }
-            editTextFromSearch.filters = arrayOf(inputFilter)
-            editTextWhereSearch.filters = arrayOf(inputFilter)
+            editTextFromSearch.filters = arrayOf(inputFilter())
+            editTextWhereSearch.filters = arrayOf(inputFilter())
         }
 
         return root
+    }
+
+    private fun inputFilter(): InputFilter {
+        val inputFilter = InputFilter { source, _, _, _, _, _ ->
+            val filtered = source.filter { it in 'А'..'я' || it == ' ' }
+            return@InputFilter filtered.ifEmpty { "" }
+        }
+        return inputFilter
     }
 
     private fun showDatePickerDialog(position: Position) {
@@ -149,7 +148,7 @@ class SearchResultFragment : Fragment() {
                 val calendar = Calendar.getInstance()
                 calendar.set(year, month, dayOfMonth)
                 dateDepartureOutboundArgs =
-                    SimpleDateFormat("d MMMM", Locale.getDefault()).format(calendar.time)
+                    SimpleDateFormat(PATTERN, Locale.getDefault()).format(calendar.time)
                 when (position) {
                     Position.OUTBOUND -> {
                         searchResultViewModel.formatDateOutbound(calendar.time)
@@ -175,5 +174,14 @@ class SearchResultFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        private const val SEARCH_QUERY_FROM = "searchQueryFrom"
+        private const val SEARCH_QUERY_WHERE = "searchQueryWhere"
+        private const val ARG_FROM = "from"
+        private const val ARG_WHERE = "where"
+        private const val ARG_DATE_OUTBOUND = "dateOutbound"
+        private const val PATTERN = "d MMMM"
     }
 }

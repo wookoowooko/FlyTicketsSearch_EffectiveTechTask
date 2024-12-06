@@ -9,5 +9,5 @@ data class LuggageDTO(
 
     @Json(name = "has_luggage")
     val hasLuggage: Boolean,
-    val price: PriceDTO? = null // Nullable because some tickets might not have luggage price.
+    val price: PriceDTO? = null
 )

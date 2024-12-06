@@ -15,10 +15,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-private const val ARG_FROM = "from"
-private const val ARG_WHERE = "where"
-private const val ARG_DATE_OUTBOUND = "dateOutbound"
-
 class AllTicketsFragment : Fragment() {
 
     private var paramFrom: String? = null
@@ -37,7 +33,7 @@ class AllTicketsFragment : Fragment() {
             paramFrom = it.getString(ARG_FROM)
             paramWhere = it.getString(ARG_WHERE)
             paramDateOutbound = it.getString(ARG_DATE_OUTBOUND) ?: SimpleDateFormat(
-                "d MMMM",
+                PATTERN,
                 Locale.getDefault()
             ).format(Date())
         }
@@ -68,5 +64,11 @@ class AllTicketsFragment : Fragment() {
         }
 
         return root
+    }
+    companion object {
+        private const val ARG_FROM = "from"
+        private const val ARG_WHERE = "where"
+        private const val ARG_DATE_OUTBOUND = "dateOutbound"
+        private const val PATTERN = "d MMMM"
     }
 }

@@ -10,4 +10,6 @@
     <string name="popular">Популярное направление</string>
     <string name="phuket">Пхукет</string>
     <string name="stambul">Стамбул</string>
+    <string name="stub_placeholder_name_artist">Die Antwoord</string>
+    <string name="stub_town">Будапешт</string>
 </resources>
